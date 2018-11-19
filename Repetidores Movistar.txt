@@ -1,0 +1,4 @@
+Repetidores Movistar => HABILITADO POR DEFECTO https://main.acs.telefonica.net:7006/cwmpWeb/*********
+ACS Usuario y Contraseña ACS1234/ACS1234
+Nombre de Usuario y Contraseña Solicitud de Conexión ACSCR1234/ACSCR1234
+Puerto Solicitud de Conexión 7547
