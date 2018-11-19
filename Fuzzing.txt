@@ -1,0 +1,1 @@
+wfuzz --hc 404 -w /usr/share/wordlists/dirb/common.txt [IP]
