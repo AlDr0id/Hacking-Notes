@@ -1,0 +1,9 @@
+Antes de comenzar hay que permitir el Port Forwarding en nuestra máquina, modificamos el /proc/sys/net/ipv4/ip_forward de 0 a 1
+
+arpspoof (mirar --help) -i [interfaz a usar (wlan0)(puede ser opcional ponerlo)] -t [IP víctima] [IP a suplantar (puede ser la del router)]
+	Hay que realizarlo dos veces, para suplantar ambas máquinas y capturar el tráfico de ambas
+	Tras esto ya podemos sniffear el tráfico con Wireshark
+
+Wireshark -> Filtro "ftp" para ver solo el tráfico ftp, "tcp" para tcp, "http"
+		ip.src == [IP] filtra por el tráfico que salga de esa IP, ip.dst == [IP] para destino
+		Para unir filtros, con &&
