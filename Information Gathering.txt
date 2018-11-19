@@ -1,0 +1,52 @@
+theharvester (direcciones de correo electrónico dentro de una web)
+	con opción "-d all" usa todos los motores de búsqueda
+
+whois (información general)
+
+filetype:cfg
+mysql dump filetype:sql
+
+
+maltego (información general pudiendo especificar)
+
+netcraft.com
+
+network-tool.com
+
+nslookup
+	set type=mx (para obtener servidores de correo corporativos)
+
+DNS Zone Transfers
+    host -t ns [url] Para obtener el nameserver
+    host -l [url] [nameserver] Para intentar hacer el zone transfer y que muestre toda la lista de resoluciones DNS
+
+
+SMTP reconnaissance
+    nc -v [ip] 25
+    VRFY [usuario] Para comprobar si ese usuario existe y su email
+
+
+
+traceroute
+
+telnet [dirección] [puerto] (para banner grabbing 80)
+O "nc -vv [ip] [puerto]"
+	Si está abierto, podemos hacer "OPTIONS / HTTP/1.0" (banner grabbing) con doble enter después, y con suerte se pueden ver los métodos permitidos en la web, o HEAD
+
+metagoofil -d [url] -t [tipo de documento] -l [límite] -n [intentos] -o [archivo de salida] -f [archivo html que genera el programa]
+
+foca
+
+exiftool [archivo]
+
+rpcclient -U "" (Y después ir probando entre las comillas posibles usernames) [Dirección IP del target]
+	Probamos con contraseñas vacías
+	Si entramos, con srvinfo obtenemos info sobre el sistema
+	Con querydominfo obtenemos más info
+	Con enumdomusers enumeramos los usuarios del sistema
+	Con createdomuser [nombre] si tenemos privilegios creamos un usuario
+	Con getdompwinfo vemos la complejidad mínima para las contraseñas
+	Con chgpasswd2 [username] [old pass] [new pass] cambiamos la contraseña
+	Con lsaquery (en teoría) obtenemos el nombre de dominio
+
+
