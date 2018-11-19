@@ -1,0 +1,15 @@
+bluetoothctl (entre otras cosas para ver dispositivos disponibles, quitar la visibilidad)
+	scan on/off (comienza escaneo)
+	devices (lista dispositivos, creo que los que han sido conectados alguna vez)
+	discoverable on/off (activa o desactiva la visibilidad del ordenador)
+	info [dev] (muestra información del dispositivo]
+	pair [dev] (parea con un dispositivo)
+	connect [dev] (conecta con un dispositivo)
+
+bluesnarfer
+
+bluetooth-sendto (Enviar archivos por bluetooth. Se pueden aplicar filtros para buscar determinados tipos de dispositivos a los que enviar los archivos)
+
+blueranger.sh hci0 [dev] (aproxima la distancia al dispositivo, probado y no aproxima nada, solo si está up o down)
+
+spooftooph -> spoofing o clonar otro dispositivo
