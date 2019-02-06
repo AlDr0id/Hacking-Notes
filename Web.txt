@@ -33,7 +33,8 @@ Probar en usuarios y contraseñas ' or 1=1;--
 
 Al poder subir archivos, si podemos elegir el nombre del archivo y no se chequea la entrada, podemos subirlos en otras localizaciones usando ../nombreArchivo
 
-
+Command Injection -> ; [Comando]
+			& [Comando]
 
 XSS -> <script>alert("HOLA");</script>
         <iframe src=http://URL A MOSTRARx></script>
