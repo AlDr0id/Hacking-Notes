@@ -93,3 +93,8 @@ cat /etc/host
 cat /etc/group
 cat /etc/resolv.conf
 
+
+
+
+
+service --status-all
