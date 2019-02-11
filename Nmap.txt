@@ -31,3 +31,8 @@ Tipo FIN + Tipo ACK para identificar Firewall
  -p80-90, 102 (Escanea del puerto 80 al 90, y el 102)
  -D HOST1 HOST2 .... NUESTRA IP ..... HOSTN (Spoofea paquetes para que no vengan solo de nuestra máquina. Pueden estar online o no [lo que puede provocar un syn flood si es -sS])
  -T[0-5] (Tiempo entre paquetes, cuanto mayor, más rápido)
+
+
+nmap -sV --script=nfs-showmount <target>
+
+nmap -p80 --script http-wordpress-users.nse IP
