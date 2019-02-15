@@ -6,6 +6,8 @@ También podemos hacer login poniendo la cookie de sesión y el index del sitio 
 
 security=low; PHPSESSID=261b124tdh0nschc1oqt1nohj2
 
+En la consola del navegador, document.cookie="cookie que queramos usar" para hacer login como otro usuario
+
 Si introducimos la url que aparece al hacer un Command Injection o SQL Injection con --data (capturándola con Burp por ejemplo) podemos hacer curl también y redirigir la salida haciendo | tee archivo.txt
 
 
@@ -164,6 +166,8 @@ wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
 
 
 php://filter/convert.base64-encode/resource=index
+
+En la consola de javascript del navegador: atob("base64"); para decodear b64
 
 Para bypassear filtro de extensión, poner .nuevaExtension
 Para bypassear filtro MIME, para imagen poner GIF al inicio de la shell
