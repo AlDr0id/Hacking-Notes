@@ -16,6 +16,9 @@ TRACE / HTTP/1.1
 Host: foo.bar
 X-Header: test
 
+O también
+curl -i -X TRACE URL
+
 // Para testear OPTIONS
 telnet URL 80
 OPTIONS / HTTP/1.1
