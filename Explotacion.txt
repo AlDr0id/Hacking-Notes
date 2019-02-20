@@ -24,6 +24,12 @@ smbclient -U [username] -L [IP target]
 	Para acceder a los directorios -> smbclient \\\\[IP Target]\\[Share al que accedemos, carpeta compartida o Share por defecto] -U [username]
 	put [archivo] (sube el archivo al directorio del ordenador víctima)
 
+SNMP ->
+	Metasploit -> 	auxiliary/scanner/snmp/snmp_login
+			auxiliary/scanner/snmp/snmp_enum
+			
+	snmpwalk -v 1(o la que sea) -c public(community name de snmp_login) IP
+	
 
 Reverse shell
     Recibida con nc -vvv -n -l -p PUERTO
