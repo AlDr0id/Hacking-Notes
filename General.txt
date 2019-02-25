@@ -1,0 +1,2 @@
+Iniciar servicio al arrancar el sistema
+  update-rc.d SERVICIO enable
