@@ -190,6 +190,9 @@ wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
 	en vez de p, vp para plugins vulnerables
 	vt para temas vulnerables
 	u enumera usernames
+	
+Escáner CMS
+	https://github.com/FlorianHeigl/cms-explorer
 
 
 php://filter/convert.base64-encode/resource=index
