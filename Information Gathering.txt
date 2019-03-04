@@ -25,7 +25,7 @@ SMTP reconnaissance
     nc -v [ip] 25
     VRFY [usuario] Para comprobar si ese usuario existe y su email
 
-
+rpcinfo -p IP
 
 traceroute
 
