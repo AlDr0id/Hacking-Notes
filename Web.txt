@@ -183,6 +183,7 @@ sqlmap
 
 
 LFI => Si queremos enlazar un archivo y vemos que le adjunta una extensión automáticamente, llamarlo sin extensión y que se ponga después
+	En caso de querer enlazar un archivo que no tenga extensión, poner %00 para que al añadirle la extensión no se tenga en cuenta
 
 
 wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
