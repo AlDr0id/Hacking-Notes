@@ -196,6 +196,7 @@ wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
 	
 Escáner CMS
 	https://github.com/FlorianHeigl/cms-explorer
+	https://github.com/Tuhinshubhra/CMSeeK
 
 
 php://filter/convert.base64-encode/resource=index
