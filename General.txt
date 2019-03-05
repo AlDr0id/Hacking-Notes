@@ -2,3 +2,5 @@ Iniciar servicio al arrancar el sistema
   update-rc.d SERVICIO enable
 
 strings -n NUM_MIN_PALABRAS | sort -u
+
+netstat -antp | grep ssh/apache/Lo-que-quieras-buscar
