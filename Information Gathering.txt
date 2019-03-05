@@ -6,6 +6,7 @@ whois (información general)
 filetype:cfg
 mysql dump filetype:sql
 
+cutycapt --url=URL --out=captura.png [--insecure]
 
 maltego (información general pudiendo especificar)
 
