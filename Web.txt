@@ -185,6 +185,7 @@ sqlmap
 LFI => Si queremos enlazar un archivo y vemos que le adjunta una extensión automáticamente, llamarlo sin extensión y que se ponga después
 	En caso de querer enlazar un archivo que no tenga extensión, poner %00 para que al añadirle la extensión no se tenga en cuenta
 	Poner al final del archivo a visualizar /. para seguir en la misma carpeta y poder bypassear ciertos filtros
+	Introducir directorios inexistentes ../../../etc/otro/../passwd o ../../../etc/./passwd o ../../../etc////passwd
 
 
 wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
