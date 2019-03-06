@@ -16,3 +16,6 @@ cat access.log | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicit
 cat access.log | grep IP | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados por una IP Apache
 
 ip a | grep "inet" | cut -d " " -f 6 | grep -v "127.0.1*" | grep -v ":" // Obtener nuestra IP con el prefijo de red
+
+tcpdump -n -r prueba.pcapng | grep IP | cut -d " " -f 3,4,5 // Obtener conexiones de pcap
+
