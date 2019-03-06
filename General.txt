@@ -13,3 +13,6 @@ for url in $(cat list.txt); do host $url; done | grep "has IPv6 address" | cut -
 
 cat access.log | cut -d " " -f 1 | sort | uniq -c | sort -rnu // Filtrar IPs log Apache
 cat access.log | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados Apache
+cat access.log | grep IP | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados por una IP Apache
+
+ip a | grep "inet" | cut -d " " -f 6 | grep -v "127.0.1*" | grep -v ":" // Obtener nuestra IP con el prefijo de red
