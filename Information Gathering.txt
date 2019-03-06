@@ -21,6 +21,12 @@ nslookup
 DNS Zone Transfers
     host -t ns [url] Para obtener el nameserver
     host -l [url] [nameserver] Para intentar hacer el zone transfer y que muestre toda la lista de resoluciones DNS
+    ***************************************************************************************************************
+    // script.sh URL
+    for server in $(host -t ns $1 | cut -d " " -f 4); do
+    host -l $1 $server | grep "has address"
+    done
+    ***************************************************************************************************************
 
 
 SMTP reconnaissance
