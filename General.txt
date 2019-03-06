@@ -5,4 +5,4 @@ strings -n NUM_MIN_PALABRAS | sort -u
 
 netstat -antp | grep ssh/apache/Lo-que-quieras-buscar
 
-grep "href=" fichero.html | cut -d "/" (para usar como delimitador el /) -f 3 (para coger solamente el tercer campo. Se pueden elegir más con 3,4,5)
+grep "href=" fichero.html | cut -d "/" (para usar como delimitador el /) -f 3 (para coger solamente el tercer campo, domain names. Se pueden elegir más con 3,4,5)
