@@ -1,5 +1,6 @@
 theharvester (direcciones de correo electrónico dentro de una web)
 	con opción "-d all" usa todos los motores de búsqueda
+	theharvester -d WEB -b all > mail.txt
 
 whois (información general)
 
