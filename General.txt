@@ -6,5 +6,10 @@ strings -n NUM_MIN_PALABRAS | sort -u
 netstat -antp | grep ssh/apache/Lo-que-quieras-buscar
 
 grep "href=" index.html | cut -d "/" (delimitador) -f 3 (tercer campo) | grep "\." (que tenga un punto) | cut -d '"' -f 1 | sort -u (sin repetidos)
-grep 'www[^"]' index.html | cut -d "/" -f 3 | sort -u
-grep 'http://' index.html | cut -d "/" -f 3 | sort -u
+grep 'www[^"]' index.html | cut -d "/" -f 3 | sort -u > list.txt
+grep 'http://' index.html | cut -d "/" -f 3 | sort -u > list.txt
+for url in $(cat list.txt); do host $url; done | grep "has address" | cut -d " " -f 4 | sort -u
+for url in $(cat list.txt); do host $url; done | grep "has IPv6 address" | cut -d " " -f 5 | sort -u
+
+cat access.log | cut -d " " -f 1 | sort | uniq -c | sort -rnu // Filtrar IPs log Apache
+cat access.log | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados Apache
