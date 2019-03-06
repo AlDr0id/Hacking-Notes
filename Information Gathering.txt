@@ -27,6 +27,13 @@ DNS Zone Transfers
     host -l $1 $server | grep "has address"
     done
     ***************************************************************************************************************
+    
+    dnsrecon -d URL -t axfr
+    dnsenum URL
+
+Escaneo
+	nc -nvv -w 1 -z IP PUERTOS
+
 
 
 SMTP reconnaissance
