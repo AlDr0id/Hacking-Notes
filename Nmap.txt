@@ -42,4 +42,6 @@ http-drupal-enum.nse
 http-drupal-enum-users.nse
 http-joomla-brute.nse
 nfs-showmount.nse
-
+smb-os-discovery.nse
+smb-enum-users.nse
+smb-vuln-ms08-067.nse
