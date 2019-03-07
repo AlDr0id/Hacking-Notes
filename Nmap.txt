@@ -36,3 +36,10 @@ Tipo FIN + Tipo ACK para identificar Firewall
 nmap -sV --script=nfs-showmount <target>
 
 nmap -p80 --script http-wordpress-users.nse IP
+
+http-wordpress-enum.nse
+http-drupal-enum.nse
+http-drupal-enum-users.nse
+http-joomla-brute.nse
+nfs-showmount.nse
+
