@@ -37,6 +37,8 @@ nmap -sV --script=nfs-showmount <target>
 
 nmap -p80 --script http-wordpress-users.nse IP
 
+nmap --script=dns-service-discovery -p 5353 -sU
+
 http-wordpress-enum.nse
 http-drupal-enum.nse
 http-drupal-enum-users.nse
