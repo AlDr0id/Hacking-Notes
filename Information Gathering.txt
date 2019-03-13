@@ -37,7 +37,7 @@ Escaneo
 Enumerar info SMB
 	enum4linux -a IP
 	nbtscan -r RED
-	smbclient -L IP // Lista carpetas compartidas en la máquina
+	smbclient -L IP // Lista recursos compartidos en la máquina
 
 SMTP reconnaissance
     nc -v [ip] 25
