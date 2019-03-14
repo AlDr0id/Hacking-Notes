@@ -33,8 +33,6 @@ Tipo FIN + Tipo ACK para identificar Firewall
  -T[0-5] (Tiempo entre paquetes, cuanto mayor, más rápido)
 
 
-nmap -sV --script=nfs-showmount <target>
-
 nmap -p80 --script http-wordpress-users.nse IP
 
 nmap --script=dns-service-discovery -p 5353 -sU
@@ -43,9 +41,3 @@ http-wordpress-enum.nse
 http-drupal-enum.nse
 http-drupal-enum-users.nse
 http-joomla-brute.nse
-nfs-showmount.nse
-smb-enum-shares.nse -p445
-smb-os-discovery.nse
-smb-enum-users.nse
-smb-vuln-ms08-067.nse
-smtp-commands.nse
