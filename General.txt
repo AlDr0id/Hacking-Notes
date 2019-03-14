@@ -20,7 +20,11 @@ cat access.log | grep IP | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recurs
 
 ip a | grep "inet" | cut -d " " -f 6 | grep -v "127.0.1*" | grep -v ":" // Obtener nuestra IP con el prefijo de red
 
+tcpdump tcp port 80 -w output.pcap -i eth0 // Capturar tráfico puerto 80
 tcpdump -n -r prueba.pcapng | grep IP | cut -d " " -f 3,4,5 // Obtener conexiones de pcap
+
+#WIRESHARK
+tcp.port eq PUERTO or PROTOCOLO // Muestra tráfico del puerto especificado y del protocolo especificado
 
 tar -xvzf archivo.tar.gz
 
