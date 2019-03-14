@@ -1,13 +1,16 @@
 Iniciar servicio al arrancar el sistema
   update-rc.d SERVICIO enable
+  systemctl enable ssh
 
 strings -n NUM_MIN_PALABRAS | sort -u
 
 netstat -antp | grep ssh/apache/Lo-que-quieras-buscar
+netstat -lntp // Conexiones activas hacia Internet
 
 grep "href=" index.html | cut -d "/" (delimitador) -f 3 (tercer campo) | grep "\." (que tenga un punto) | cut -d '"' -f 1 | sort -u (sin repetidos)
 grep 'www[^"]' index.html | cut -d "/" -f 3 | sort -u > list.txt
 grep 'http://' index.html | cut -d "/" -f 3 | sort -u > list.txt
+
 for url in $(cat list.txt); do host $url; done | grep "has address" | cut -d " " -f 4 | sort -u
 for url in $(cat list.txt); do host $url; done | grep "has IPv6 address" | cut -d " " -f 5 | sort -u
 
@@ -19,3 +22,10 @@ ip a | grep "inet" | cut -d " " -f 6 | grep -v "127.0.1*" | grep -v ":" // Obten
 
 tcpdump -n -r prueba.pcapng | grep IP | cut -d " " -f 3,4,5 // Obtener conexiones de pcap
 
+tar -xvzf archivo.tar.gz
+
+Decodear b64
+(cat archivo || echo -n "string") | base64 --decode
+
+Decodear hex
+(cat archivo || echo -n "string") | xxd -r -ps
