@@ -3,8 +3,6 @@ Webserver con webdav -> cadaver [url]
 
 Para escribir sin editor de texto: "cat << EOF > archivoACrear", y escribimos lo que queramos. Finalizar con EOF
 
-sudo -l Para ver si el usuario puede ejecutar algo como root
-
 **Obtener shell**
 awk 'BEGIN {system("/bin/sh")}' Para sacar shell si se tienen permisos con awk pro alguna razón
 :!bash // Shell desde Vi
@@ -87,15 +85,20 @@ Notice the password field is displayed, where you can use tools like John the Ri
 
 
 #WINDOWS
+net config Workstation // Obtener info del equipo
+net user // Obtener usuarios
 ipconfig /all
 ipconfig /displaydns
+route print Ó netstat -r // Tabla de rutas
 arp -a
-netstat -ano
-netstat -r
-tasklist /svc
-net start/stop
+netstat -ano // Conexiones activas
+tasklist /svc // Lista procesos activos
+net start // Lista servicios iniciados
+net start/stop PROCESO // Inicia o para un servicio
+netsh firewall show state // Ver estado del Firewall
+netsh firewall show config
 netsh firewall set opmode disable (con privilegios)
-net user
+
 net localgroup
 net user \domain (Para ver los usuarios de un dominio)
 **Descargar archivos desde Windows**
@@ -112,7 +115,9 @@ uname -a
 cat /etc/host
 cat /etc/group
 cat /etc/resolv.conf
+sudo -l Para ver si el usuario puede ejecutar algo como root
 find / -perm -4000 -ls 2> /dev/null // Para buscar ficheros con SUID activado
 To see every process running as root (real & effective ID) in user format:
           ps -U root -u root u
+ps -xaf // Enumerar procesos en ejecución
 service --status-all
