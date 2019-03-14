@@ -118,12 +118,19 @@ nc -v [ip] 25
 smtp-commands.nse
 
 #SNMP
+	DEFAULT PASS
+	/usr/share/metasploit-framework/data/wordlists/snmp_default_pass.txt
+	
 	snmpwalk -c public IP 1.3.6.1.4.1.77.1.2.25 // Windows Users
 	snmpwalk -c public IP 1.3.6.1.2.1.25.4.2.1.2 // Windows Processes
 	snmpwalk -c public IP 1.3.6.1.2.1.6.13.1.3 // Open TCP Ports
 	snmpwalk -c public IP 1.3.6.1.2.1.25.6.3.1.2 // Installed Software
-  snmpwalk -v 1(o la que sea) -c public(community name de snmp_login) IP
+  	snmpwalk -v 1(o la que sea) -c public(community name de snmp_login) IP
 
+	snmpcheck -t IP -c public // Enumeración
+	snmpenum -t IP
+	onesixtyone -c NAMES -i HOSTS
+	
   auxiliary/scanner/snmp/snmp_login
 	auxiliary/scanner/snmp/snmp_enum
 
@@ -141,3 +148,7 @@ wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
 Escáner CMS
 	https://github.com/FlorianHeigl/cms-explorer
 	https://github.com/Tuhinshubhra/CMSeeK
+	
+	
+#MS SQL
+nmap -p 1433 --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER IP
