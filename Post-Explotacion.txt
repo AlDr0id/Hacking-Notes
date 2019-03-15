@@ -135,8 +135,8 @@ sudo -l Para ver si el usuario puede ejecutar algo como root
 find / -perm -4000 -ls 2> /dev/null // Para buscar ficheros con SUID activado
 To see every process running as root (real & effective ID) in user format:
           ps -U root -u root u
-wget https://highon.coffee/downloads/linux-local-enum.sh
-
+wget https://highon.coffee/downloads/linux-local-enum.sh // Enumeración de posibles aspectos para elevar privilegios
+wget https://www.securitysift.com/download/linuxprivchecker.py // Enumeración y posibles exploits
 
 ----------------------------------------
 Si la versión de chkrootkit es vulnerable (/etc/chkrootkit/chkrootkit -V == 0.49) =>
