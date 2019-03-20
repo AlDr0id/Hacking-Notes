@@ -76,8 +76,8 @@ nslookup
 Enumerar info SMB
 	enum4linux -a IP
 	nbtscan -r RED
-	smbclient -L //IP // Lista recursos compartidos en la máquina con null session
-	smbclient -U [username] -L [IP target]
+	smbclient -L //IP // Ya lo hace enum4linux. Lista recursos compartidos en la máquina con null session
+	smbclient -U [username] -L [IP target] // Ya lo hace enum4linux
 	smb-enum-shares.nse -p445
 	nbstat.nse -p 137 // Netbios expuestos
 	smb-os-discovery.nse
