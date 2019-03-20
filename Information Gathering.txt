@@ -102,7 +102,7 @@ list
 retr NUMERO
 
 #RPC
-rpcinfo -p IP
+rpcinfo -p IP [apt-get install nfs-common]
 rpcclient -U ""/"USERNAME" --command=enumprivs -N IP // Enumerar privilegios
 rpcclient -U "" (Y después ir probando entre las comillas posibles usernames) IP
 	Probamos con contraseñas vacías
