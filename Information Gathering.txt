@@ -74,6 +74,7 @@ nslookup
 
 #SMB
 Enumerar info SMB
+	use auxiliary/scanner/smb/smb_version
 	enum4linux -a IP
 	nbtscan -r RED
 	smbclient -L //IP // Ya lo hace enum4linux. Lista recursos compartidos en la máquina con null session
