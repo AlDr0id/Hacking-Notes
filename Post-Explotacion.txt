@@ -122,7 +122,7 @@ net user \domain (Para ver los usuarios de un dominio)
 last (historial de inicios de sesión)
 whoami
 uname -a
-cat /etc/host
+cat /etc/hosts
 cat /etc/group
 cat /etc/resolv.conf
 ps -xaf // Enumerar procesos en ejecución
@@ -137,6 +137,7 @@ To see every process running as root (real & effective ID) in user format:
           ps -U root -u root u
 wget https://highon.coffee/downloads/linux-local-enum.sh // Enumeración de posibles aspectos para elevar privilegios
 wget https://www.securitysift.com/download/linuxprivchecker.py // Enumeración y posibles exploits
+[--no-check-certificate]
 
 ----------------------------------------
 Si la versión de chkrootkit es vulnerable (/etc/chkrootkit/chkrootkit -V == 0.49) =>
