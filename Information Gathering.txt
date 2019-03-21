@@ -148,6 +148,11 @@ smtp-commands.nse
 OpenFuck => https://www.hypn.za.net/blog/2017/08/27/compiling-exploit-764-c-in-2017/
 	gcc -o OpenFuck /usr/share/exploitdb/exploits/unix/remote/764.c -lcrypto
 
+#SSH
+	use auxiliary/scanner/ssh/ssh_enumusers
+	https://github.com/danielmiessler/SecLists/blob/master/Usernames/top-usernames-shortlist.txt
+	https://github.com/danielmiessler/SecLists/blob/master/Usernames/cirt-default-usernames.txt
+
 #CMS
 wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
 	--url [url] --enumerate p (plugins)
