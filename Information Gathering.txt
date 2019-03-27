@@ -137,7 +137,7 @@ smtp-commands.nse
 	snmpenum -t IP
 	onesixtyone -c NAMES -i HOSTS
 	
-  auxiliary/scanner/snmp/snmp_login
+	auxiliary/scanner/snmp/snmp_login
 	auxiliary/scanner/snmp/snmp_enum
 
 #FTP
@@ -169,5 +169,8 @@ Escáner CMS
 	https://github.com/Tuhinshubhra/CMSeeK
 	
 	
-#MS SQL
+#MSSQL
 nmap -p 1433 --script ms-sql-info,ms-sql-empty-password,ms-sql-xp-cmdshell,ms-sql-config,ms-sql-ntlm-info,ms-sql-tables,ms-sql-hasdbaccess,ms-sql-dac,ms-sql-dump-hashes --script-args mssql.instance-port=1433,mssql.username=sa,mssql.password=,mssql.instance-name=MSSQLSERVER IP
+
+#VNC
+use auxiliary/scanner/vnc/vnc_none_auth
