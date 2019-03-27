@@ -1,3 +1,6 @@
+#MSF
+service postgresql start && msfdb init && msfconsole
+
 #NC-NCAT-FTP
 **Transferencia de archivos**
     nc -lvp [puerto] > [archivo a guardar]
