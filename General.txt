@@ -18,6 +18,8 @@ cat access.log | cut -d " " -f 1 | sort | uniq -c | sort -rnu // Filtrar IPs log
 cat access.log | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados Apache
 cat access.log | grep IP | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados por una IP Apache
 
+cat $1 | grep "is a valid" | cut -d " " -f 1 | sort -u > parsedUsers.txt // Filtrar usuarios enum SSH
+
 ip a | grep "inet" | cut -d " " -f 6 | grep -v "127.0.1*" | grep -v ":" // Obtener nuestra IP con el prefijo de red
 
 tcpdump tcp port 80 -w output.pcap -i eth0 // Capturar tráfico puerto 80
