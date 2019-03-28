@@ -14,12 +14,15 @@ banner=s.recv(1024)
 print banner
 
 dic=open(sys.argv[2])
+salida=open("SMTPUsers.txt", 'w')
 
 for i in dic:
-  s.send('VRFY ' + i + '\r\n')
+  s.send('VRFY ' + i + '\r')
   result=s.recv(1024)
+  salida.write(result)
   print result
   
 dic.close()
-
+print "Salida guardada en SMTPUsers.txt"
+salida.close()
 s.close()
