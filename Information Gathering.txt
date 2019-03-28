@@ -121,6 +121,7 @@ nmap -sV --script=nfs-showmount IP
 #SMTP
 nc -v [ip] 25
     VRFY [usuario] Para comprobar si ese usuario existe y su email
+    HELO asdf // Devuelve el nombre de dominio
 smtp-commands.nse
 
 #SNMP
