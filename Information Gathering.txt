@@ -42,6 +42,9 @@ O "nc -vv [ip] [puerto]"
 	Si está abierto, podemos hacer "OPTIONS / HTTP/1.0" (banner grabbing) con doble enter después, y con suerte se pueden ver los métodos permitidos en la web, o HEAD
 
 #WEB
+
+/?-s // Para mostrar el código fuente en php
+
 **Para testear TRACE**
 telnet URL 80
 TRACE / HTTP/1.1
