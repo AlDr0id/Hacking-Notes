@@ -120,6 +120,8 @@ rpcclient -U "" (Y después ir probando entre las comillas posibles usernames) I
 
 #NFS
 nmap -sV --script=nfs-showmount IP
+showmount -e IP
+mount IP:/directorio /mnt
 
 #SMTP
 nc -v [ip] 25
