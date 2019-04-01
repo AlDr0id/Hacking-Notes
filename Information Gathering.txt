@@ -149,6 +149,7 @@ smtp-commands.nse
 #FTP
   use scanner/ftp/anonymous (Comprueba si se puede acceder de forma anónima mediante ftp)
   definir RHOSTS (targets)
+  hydra -L USERS.txt -P PASS.txt -vV IP ftp
   
 #OPENSSL
 OpenFuck => https://www.hypn.za.net/blog/2017/08/27/compiling-exploit-764-c-in-2017/
@@ -160,6 +161,7 @@ OpenFuck => https://www.hypn.za.net/blog/2017/08/27/compiling-exploit-764-c-in-2
 	cat salida.txt | grep "is a valid" | cut -d " " -f 1 | sort -u > parsedUsers.txt
 	https://github.com/danielmiessler/SecLists/blob/master/Usernames/top-usernames-shortlist.txt
 	https://github.com/danielmiessler/SecLists/blob/master/Usernames/cirt-default-usernames.txt
+	hydra -L USERS.txt -P PASS.txt -vV IP ssh
 
 #MYSQL
 	use auxiliary/admin/mysql/mysql_enum
