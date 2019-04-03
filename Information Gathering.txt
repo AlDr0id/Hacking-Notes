@@ -1,3 +1,5 @@
+cewl -w DICC.txt --with-numbers -a -e URL
+
 gobuster -w WORDLIST -u URL [-k] (para saltar comprobación SSL)
 
 wfuzz --hc 404 -w /usr/share/wordlists/dirb/common.txt [IP]
