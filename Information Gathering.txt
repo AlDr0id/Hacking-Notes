@@ -115,6 +115,7 @@ rpcclient -U "" (Y después ir probando entre las comillas posibles usernames) I
 	Si entramos, con srvinfo obtenemos info sobre el sistema
 	Con querydominfo obtenemos más info
 	Con enumdomusers enumeramos los usuarios del sistema
+		cat salida.txt | cut -d "[" -f 2 | cut -d "]" -f 1 | sort -u > usersRPC.txt
 	Con createdomuser [nombre] si tenemos privilegios creamos un usuario
 	Con getdompwinfo vemos la complejidad mínima para las contraseñas
 	Con chgpasswd2 [username] [old pass] [new pass] cambiamos la contraseña
