@@ -20,6 +20,7 @@ cat access.log | grep IP | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recurs
 
 cat $1 | grep "is a valid" | cut -d " " -f 1 | sort -u > parsedUsers.txt // Filtrar usuarios enum SSH
 cat $1 | grep "2.0.0" | cut -d " " -f 3 | sort -u > parsedSMTPUsers.txt // Filtrar usuarios enum SMTP
+cat $1 | cut -d "[" -f 2 | cut -d "]" -f 1 | sort -u > usersRPC.txt // Filtrar usuarios RPC
 
 ip a | grep "inet" | cut -d " " -f 6 | grep -v "127.0.1*" | grep -v ":" // Obtener nuestra IP con el prefijo de red
 
