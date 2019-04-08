@@ -88,7 +88,6 @@ Enumerar info SMB
 	nbstat.nse -p 137 // Netbios expuestos
 	smb-os-discovery.nse
 	smb-enum-users.nse -p U:137,T:139
-  	smb-check-vulns --script-args=unsafe=1 -p 445
   	Para acceder a los directorios -> smbclient \\\\[IP Target]\\[Share al que accedemos, carpeta compartida o Share por defecto] -U [username]
   	put [archivo] (sube el archivo al directorio del ordenador víctima)
   use auxiliary/scanner/smb/smb_ms17_010
