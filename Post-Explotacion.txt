@@ -134,6 +134,8 @@ ps -xaf // Enumerar procesos en ejecución
 service --status-all
 grep -vE "nologin|false" /etc/passwd // Obtener usuarios que pueden hacer login en la máquina
 
+use post/multi/gather/tomcat_gather // Credenciales de Tomcat
+
 **Elevación de privilegios**
 sudo su // Probar si el usuario tiene permisos de root
 sudo -l Para ver si el usuario puede ejecutar algo como root
