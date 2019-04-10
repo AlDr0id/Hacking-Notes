@@ -1,6 +1,9 @@
 #MSF
 service postgresql start && msfdb init && msfconsole
 
+#Linux
+rsh/rlogin USUARIO@IP // Si está habilitado rlogin en el target
+
 #NC-NCAT-FTP
 **Transferencia de archivos**
     nc -lvp [puerto] > [archivo a guardar]
