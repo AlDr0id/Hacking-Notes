@@ -131,6 +131,7 @@ rpcclient -U "" (Y después ir probando entre las comillas posibles usernames) I
 	Con getdompwinfo vemos la complejidad mínima para las contraseñas
 	Con chgpasswd2 [username] [old pass] [new pass] cambiamos la contraseña
 	Con lsaquery (en teoría) obtenemos el nombre de dominio
+nmap --script msrpc-enum IP
 
 #NFS
 nmap -sV --script=nfs-showmount IP
