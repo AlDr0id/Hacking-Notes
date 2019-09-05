@@ -47,6 +47,10 @@ O "nc -vv [ip] [puerto]"
 
 /?-s // Para mostrar el código fuente en php
 
+curl -G URL (Hace Get)
+curl -I URL (Hace Head)
+curl --trace - URL (Hace seguimiento de todo lo que realiza la petición)
+
 **Para testear TRACE**
 telnet URL 80
 TRACE / HTTP/1.1
@@ -54,7 +58,7 @@ Host: foo.bar
 X-Header: test
 
 O también
-curl -i -X TRACE URL
+curl -i -X TRACE URL (-i incluye las cabeceras de respuesta en el output)
 
 **Para testear OPTIONS**
 telnet URL 80
