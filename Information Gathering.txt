@@ -4,7 +4,7 @@ cewl -w DICC.txt --with-numbers -a -e URL
 gobuster -w WORDLIST -u URL -t 50 [-x php,txt,html,htm] [-k] (para saltar comprobación SSL) dir
 wfuzz --hc 404 -w /usr/share/wordlists/dirb/common.txt [IP]
 
-// Fuzzear parámetros (No mostrar que coincidan: --hh chars, --hc code)
+// Fuzzear parámetros (No mostrar que coincidan: --hh chars(X caracteres en la respuesta), --hc code)
 wfuzz [--hh=24(para comprobar parámetros)/hc=] -c -w DICC (/usr/share/wordlists/dirb/big.txt) URL?FUZZ=test
 
 dirb URL DICC
