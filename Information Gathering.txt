@@ -8,6 +8,7 @@ wfuzz --hc 404 -w /usr/share/wordlists/dirb/common.txt [IP]
 wfuzz [--hh=24(para comprobar parámetros)/hc=] -c -w DICC (/usr/share/wordlists/dirb/big.txt) URL?FUZZ=test
 
 dirb URL DICC
+dirb URL -z 100 (Delay ms) (no hace falta dicc)
 dirb URL -p IP:PUERTO // Usar un proxy
 
 uniscan -u URL -qweds
