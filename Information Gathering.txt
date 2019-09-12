@@ -5,7 +5,7 @@ gobuster -w WORDLIST -u URL -t 50 [-x php,txt,html,htm] [-k] (para saltar compro
 wfuzz --hc 404 -w /usr/share/wordlists/dirb/common.txt [IP]
 
 // Fuzzear parámetros (No mostrar que coincidan: --hh chars, --hc code)
-wfuzz [--hh=24/hc=] -c -w DICC (/usr/share/wordlists/dirb/big.txt) URL?FUZZ=test
+wfuzz [--hh=24(para comprobar parámetros)/hc=] -c -w DICC (/usr/share/wordlists/dirb/big.txt) URL?FUZZ=test
 
 dirb URL DICC
 dirb URL -p IP:PUERTO // Usar un proxy
