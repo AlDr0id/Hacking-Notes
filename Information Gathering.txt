@@ -200,6 +200,9 @@ use auxiliary/scanner/telnet/telnet_version
 #MYSQL
 	use auxiliary/admin/mysql/mysql_enum
 
+#Magento
+wget https://github.com/steverobbins/magescan/releases/download/v1.12.9/magescan.phar
+php magescan.phar scan:all URL
 
 #CMS
 wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
