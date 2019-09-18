@@ -76,6 +76,36 @@ Wordpress =>
 		<value><struct><member><name>methodName</name><value><string>wp.getUsersBlogs</string></value></member><member><name>params</name><value><array><data><value><array><data><value><string>user</string></value><value><string>pass4</string></value></data></array></value></data></array></value></member></struct></value>
 
 		</data></array></value></param></params></methodCall>
+		
+	Para crear entradas =>
+		<methodCall>
+		<methodName>wp.newPost</methodName>
+		<params>
+			<param><value>what is this parameter</value></param>
+			<param><value>user</value></param>
+			<param><value>pass</value></param>
+			<param><struct>
+				<member><name>post_title</name><value>test post</value></member>
+				<member><name>post_content</name><value>any HTML content here</value></member>
+				<member><name>post_excerpt</name><value>excerpt</value></member>
+			</struct></param>
+		</params>
+		</methodCall>
+	
+	Para subir archivos =>
+		<methodCall>
+		<methodName>metaWeblog.newMediaObject</methodName>
+		<params>
+			<param><value>what is this parameter</value></param>
+			<param><value>user</value></param>
+			<param><value>pass</value></param>
+			<param><struct>
+				<member><name>name</name><value>file_name.html</value></member>
+				<member><name>type</name><value>text/plain</value></member>
+				<member><name>bits</name><value>file contents, any data format XML-encoded</value></member>
+			</struct></param>
+		</params>
+		</methodCall>
 
 #XSS
 http://xss.rocks/xss.js
