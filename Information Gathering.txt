@@ -204,6 +204,9 @@ use auxiliary/scanner/telnet/telnet_version
 wget https://github.com/steverobbins/magescan/releases/download/v1.12.9/magescan.phar
 php magescan.phar scan:all URL
 
+#Wordpress
+/wp-json/wp/v2/users
+
 #CMS
 wpscan 	NO ADMITE SITIOS .WORDPRESS.COM
 	--url [url] --enumerate p (plugins)
