@@ -1,0 +1,10 @@
+top -p PID,PID,PID (Muestra esos procesos)
+
+jobs (procesos en background)
+
+badblocks -fws /dev/sdX (Borrar info de disco duro)
+
+dd if=/dev/sdX of=/home/XXX/mbr.info bs=512 count=1 (Guardar el MBR)
+dd if=/home/XXX/mbr.info of=/dev/sdX bs=512 count=1 && partprobe (Restore MBR y actualizar para que se relea
+
+df (Lista disp montados y dónde)
