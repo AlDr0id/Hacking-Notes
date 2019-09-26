@@ -10,3 +10,6 @@ dd if=/home/XXX/mbr.info of=/dev/sdX bs=512 count=1 && partprobe (Restore MBR y 
 df (Lista disp montados y dónde. También muestra espacio disponible)
 
 mount -o ro (read only) /dev/sdX /mnt
+
+/etc/rsyslog.conf (Config de logs)
+/etc/logrotate.conf (Config de renovación de logs)
