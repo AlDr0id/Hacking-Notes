@@ -10,3 +10,15 @@ iw dev mon0 interface del // Borrar la interfaz
 iwlist wlan0 scanning |grep ESSID / egrep "ESSID|Channel"
 iwconfig wlan0 mode monitor channel 3
   ifconfig wlan0 up
+tcpdump -i mon0 -s 65000 -p // Comprobar que está en modo monitor
+iwconfig wlan0 mode managed // Volver a modo anterior
+
+##########################
+
+airmon-ng // Muestra tarjeta inalámbrica
+airmon-ng check // Muestra procesos que pueden ser problemáticos
+airmon-ng check kill // Termina procesos problemáticos
+airmon-ng start wlan0 // Poner en modo monitor la interfaz
+airmon-ng stop mon0 // Para el modo monitor
+airmon-ng start wlan0 3 // Modo monitor en ese canal (útil para filtrar solo el canal de la red que queramos)
+  Comprobar con iwlist mon0 channel
