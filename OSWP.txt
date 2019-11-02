@@ -136,7 +136,22 @@ airolib-ng NOMBRE-DB-ANTERIOR --batch
 airolib-ng NOMBRE-DB-ANTERIOR --stats (Vemos que ya hay contraseñas)
 aircrack-ng -r NOMBRE-DB-ANTERIOR NOMBRE-CAPTURA
 
+john --wordlist=DICC --rules (usa las reglas por defecto) --stdout
+nano john.conf (en el directorio de john)
+$[0-9]$[0-9] (Añade dos números al final)
+$[0-9]$[0-9]$[0-9] (Añade tres números al final)
+john --wordlist=/pentest/wireless/aircrack-ng/test/paswsword.lst --rules --stdout | aircrack-ng -0 -e ESSID -w - NOMBRE-CAPTURA
 
+cowpatty -r NOMBRE-CAPTURA -f DICC -2 (?) -s ESSID (Más lento que aircrack-ng)
 
+Crear rainbow table (hay que crearla para cada ESSID)
+genpmk -f DICC -d ARCHIVO-SALIDA -s ESSID
+cowpatty -r NOMBRE-CAPTURA -d HASHES-FILE -2 -s ESSID 
 
+Comprobar si tenemos un handshake
+pyrit -r NOMBRE-CAPTURA analyze
+Dejar solo los paquetes necesarios para crackear
+pyrit -r NOMBRE-CAPTURA -o OUTPUT-FILENAME strip
+Ataque bruteforce
+pyrit -r NOMBRE-CAPTURA -i DICC -b MAC-AP attack_passthrough
 
