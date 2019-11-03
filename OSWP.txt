@@ -155,3 +155,57 @@ pyrit -r NOMBRE-CAPTURA -o OUTPUT-FILENAME strip
 Ataque bruteforce
 pyrit -r NOMBRE-CAPTURA -i DICC -b MAC-AP attack_passthrough
 
+Ataque con bbdd
+pyrit eval
+pyrit -i (import) DICC import_passwords
+(Solo guarda las pass válidas para WPA)
+pyrit eval
+pyrit -e ESSID create_essid
+pyrit eval
+pyrit batch
+pyrit -r NOMBRE-CAPTURA attack_db
+
+(Ver GPUs disponibles)
+pyrit list_cores
+pyrit benchmark (password test)
+
+wc -l DICC (Líneas del archivo)
+
+Airdecap-ng (Decodear tráfico sniffeado)
+airdecap-ng -b MAC-AP NOMBRE-CAPTURA (Crea un archivo -dec.cap solo con el tráfico interesante para abrirlo con Wireshark)
+airdecap-ng -w WEP-KEY NOMBRE-CAPTURA (Crea un archivo en claro del tráfico)
+airdecap-ng -e ESSID -p WPA-PASS NOMBRE-CAPTURA
+
+Airserv-ng (sniffear desde otra IP en vez de desde nuestra interfaz)
+airmon-ng start wlan0 [channel]
+airserv-ng -p [port] -c [channel] -d mon0
+airodump-ng -c [channel] -bssid MAC-AP IP-ANTERIOR:puerto
+
+Airtun-ng (decrypt traffic in real time, IDS por ejemplo)
+airmon-ng start wlan0 [channel]
+airtun-ng -a MAC-AP -w WEP-KEY mon0
+ifconfig at0 (o la que cree) up
+wireshark (en at0)
+
+Airgraph-ng
+airgraph-ng -i CSV-FILE -g CAPR -o OUTPUT-FILE.png
+eog OUTPUT-ANTERIOR.png
+airgraph-ng -i CSV-FILE -g CPG -o OUTPUT-FILE.png
+eog OUTPUT-ANTERIOR.png
+
+Kismet
+El .nettxt tiene logs
+wireshark el .pcapdump
+
+GISKismet
+giskismet -x netxml-file
+giskismet -q "select * from wireless" -o OUTPUT.kml
+Abrir con google-earth o similar
+giskismet -q "select * from wireless where Encryption='WEP'" -o OUTPUT.kml
+Abrir con google-earth o similar
+
+Airbase-ng
+airmon-ng start wlan0 [channel]
+airbase-ng -c [channel] -e "ESSID-DESEADO" mon0
+
+
