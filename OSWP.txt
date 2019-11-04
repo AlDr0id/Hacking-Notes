@@ -1,3 +1,4 @@
+sudo apt-get install wireless-tools
 iwconfig // observamos modo y si está asociado a algún AP o no
 iw list // listar info de la tarjeta inalámbrica
 dmesg | grep [tarjeta wifi] // drivers
