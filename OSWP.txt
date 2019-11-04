@@ -209,4 +209,7 @@ Airbase-ng
 airmon-ng start wlan0 [channel]
 airbase-ng -c [channel] -e "ESSID-DESEADO" mon0
 
-
+Capturar tráfico en nuestro fake AP y obtener hanshake de una WPA
+airodump-ng -c [channel] -d MAC-NUESTRA -w NOMBRE-CAPTURA mon0
+airbase-ng -c [channel] -e "ESSID-DESEADO" -z 4 (WPA2 CCMP Cipher) -W 1 (specify beacons to use WEP encryption) mon0
+aircrack-ng -0 -w DICC[/pentest/passwords/john/password.lst] NOMBRE-CAPTURA
