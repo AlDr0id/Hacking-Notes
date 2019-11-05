@@ -1,20 +1,32 @@
-sudo apt-get install wireless-tools
+########################################
+Configuración inicial y reconocimiento
+########################################
+
+sudo apt-get install wireless-tools (si no está instalado iwconfig)
 iwconfig // observamos modo y si está asociado a algún AP o no
 iw list // listar info de la tarjeta inalámbrica
 dmesg | grep [tarjeta wifi] // drivers
+
 iw dev wlan0 scan | grep SSID // Listar APs disponibles en rango
 iw dev wlan0 scan | egrep "DS\ Parameter\ set|SSID" // Listar APs con su canal
+
+iwlist wlan0 scanning |grep ESSID / egrep "ESSID|Channel"
+
 iw dev wlan0 interface add mon0 type monitor // Poner en modo monitor wlan0
   Después ifconfig mon0 up
 tcpdump -i mon0 -s 65000 -p // Comprobar que está en modo monitor
-iw dev mon0 interface del // Borrar la interfaz
-iwlist wlan0 scanning |grep ESSID / egrep "ESSID|Channel"
+
 iwconfig wlan0 mode monitor channel 3
   ifconfig wlan0 up
-tcpdump -i mon0 -s 65000 -p // Comprobar que está en modo monitor
+tcpdump -i mon0 (wlan0?) -s 65000 -p // Comprobar que está en modo monitor
+
+iw dev mon0 interface del // Borrar la interfaz
+
 iwconfig wlan0 mode managed // Volver a modo anterior
 
-##########################
+#############################
+Airmon-ng conceptos básicos
+#############################
 
 airmon-ng // Muestra tarjeta inalámbrica
 airmon-ng check // Muestra procesos que pueden ser problemáticos
