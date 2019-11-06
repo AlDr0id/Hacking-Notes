@@ -107,8 +107,12 @@ Wordpress =>
 	========================
 	También con wp.uploadFile
 		
-
-
+#Magento
+	/soap
+	/soap/default?wsdl_list=1
+	https://github.com/magento/magento2/blob/2.3/app/code/Magento/Customer/etc/webapi.xml
+	
+	https://github.com/steverobbins/magescan
 
 #XSS
 http://xss.rocks/xss.js
