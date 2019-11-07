@@ -112,6 +112,19 @@ Wordpress =>
 	/soap/default?wsdl_list=1
 	https://github.com/magento/magento2/blob/2.3/app/code/Magento/Customer/etc/webapi.xml
 	
+	POST /rest/V1/integration/admin/token HTTP/1.1
+	<login><username>admin</username><password>123123q</password></login>
+	
+	POST /rest/V1/integration/customer/token HTTP/1.1
+	<login><username>EMAIL</username><password>PASS</password></login>
+	
+	POST /rest/V1/customers/isEmailAvailable HTTP/1.1
+	Content-Type:application/json
+	{
+	"customerEmail": "EMAIL",
+	"websiteId": 1
+	}
+	
 	https://github.com/steverobbins/magescan
 	php magescan.phar scan:all www.example.com
 
