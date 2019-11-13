@@ -112,6 +112,8 @@ Wordpress =>
 	/soap/default?wsdl_list=1
 	https://github.com/magento/magento2/blob/2.3/app/code/Magento/Customer/etc/webapi.xml
 	
+	Content-Type:application/xml
+	
 	POST /rest/V1/integration/admin/token HTTP/1.1
 	<login><username>admin</username><password>123123q</password></login>
 	
