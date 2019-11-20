@@ -71,3 +71,10 @@ airodump-ng -c [canal del AP] --bssid [bssid del AP] -w [fichero al que se va a 
 Si hay algún cliente conectado, lo desautenticamos
 aireplay-ng -0 (desautenticar) 1 (veces que se mandará la desautenticación) -a [bssid del AP] -c [mac del cliente a desautenticar] [interfaz en monitor]
 aircrack-ng –w [diccionario] [archivo .cap]
+
+
+
+#################################################
+Nuevo
+#################################################
+
