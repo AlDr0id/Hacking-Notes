@@ -1,3 +1,8 @@
+####################################################
+https://github.com/swisskyrepo/PayloadsAllTheThings
+####################################################
+
+
 #HTTP Basic Auth
 	nmap -p [80/443] --script http-brute --script-args 'http-brute.hostname=URL,http-brute.method=[GET/POST],http-brute.path=PATH_TO_LOGIN,userdb=USERS,passdb=PASS' -v URL -n
 
