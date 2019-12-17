@@ -58,16 +58,29 @@ Wordpress =>
 		</methodCall>
 	Si está activo el system.multicall y wp.getCategories =>
 		<methodCall><methodName>system.multicall</methodName>
+		 
 		 <member><name>methodName</name><value><string>wp.getCategories</string></value></member>
 		 <member><name>params</name><value><array><data>
 		 <value><string></string></value>
-		 <value><string>user</string></value>
-		 <value><string>pass</string></value>
+		 <value><string>admin</string></value>
+		 <value><string>admin</string></value>
+		 
 		 <member><name>methodName</name><value><string>wp.getCategories</string></value></member>
 		 <member><name>params</name><value><array><data>
-		 <value><string>user2</string></value>
-		 <value><string>pass2</string></value>
+		 <value><string>admin</string></value>
+		 <value><string>password</string></value>
 
+		 <member><name>methodName</name><value><string>wp.getCategories</string></value></member>
+		 <member><name>params</name><value><array><data>
+		 <value><string></string></value>
+		 <value><string>admin</string></value>
+		 <value><string>admin</string></value>
+
+		 <member><name>methodName</name><value><string>wp.getCategories</string></value></member>
+		 <member><name>params</name><value><array><data>
+		 <value><string></string></value>
+		 <value><string>admin</string></value>
+		 <value><string>admin</string></value>
 		</methodCall>
 		
 	Si está activo el system.multicall y wp.getUsersBlogs =>
