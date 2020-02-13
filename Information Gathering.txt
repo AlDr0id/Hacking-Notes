@@ -69,6 +69,9 @@ telnet URL 80
 OPTIONS / HTTP/1.1
 Host: foo.bar
 
+LFI:
+	https://github.com/Claor/LFI-Digger
+
 #TOMCAT
 use auxiliary/admin/http/tomcat_administration // Probar creds de admin
 	set BLANK_PASSWORDS true
