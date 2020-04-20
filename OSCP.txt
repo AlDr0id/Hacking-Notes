@@ -28,3 +28,13 @@ gobuster -w /usr/share/wordlists/dirb/big.txt -u 192.168.111.129 -t 50 dir
   /usage (Status: 301)
   /~root (Status: 403)
   /~operator (Status: 403)
+
+enum4linux -a 192.168.111.129
+  [+] Got domain/workgroup name: MYGROUP
+  KIOPTRIX        <00> -         B <ACTIVE>  Workstation Service
+  KIOPTRIX        <03> -         B <ACTIVE>  Messenger Service
+  KIOPTRIX        <20> -         B <ACTIVE>  File Server Service
+  ..__MSBROWSE__. <01> - <GROUP> B <ACTIVE>  Master Browser
+  MYGROUP         <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+  MYGROUP         <1d> -         B <ACTIVE>  Master Browser
+  MYGROUP         <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
