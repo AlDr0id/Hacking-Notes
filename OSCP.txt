@@ -1,1 +1,30 @@
+Kioptrix 1.1
 
+netdiscover
+  La encontramos en 192.168.111.129
+
+nmap -sV -O -Pn 192.168.111.129
+  PORT      STATE SERVICE     VERSION
+  22/tcp    open  ssh         OpenSSH 2.9p2 (protocol 1.99)
+  80/tcp    open  http        Apache httpd 1.3.20 ((Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b)
+  111/tcp   open  rpcbind     2 (RPC #100000)
+  139/tcp   open  netbios-ssn Samba smbd (workgroup: MYGROUP)
+  443/tcp   open  ssl/https   Apache/1.3.20 (Unix)  (Red-Hat/Linux) mod_ssl/2.8.4 OpenSSL/0.9.6b
+  32768/tcp open  status      1 (RPC #100024)
+  
+rpcinfo -p 192.168.111.129
+  program vers proto   port  service
+    100000    2   tcp    111  portmapper
+    100000    2   udp    111  portmapper
+    100024    1   udp  32768  status
+    100024    1   tcp  32768  status
+    
+gobuster -w /usr/share/wordlists/dirb/big.txt -u 192.168.111.129 -t 50 dir
+  /.htpasswd (Status: 403)
+  /.htaccess (Status: 403)
+  /cgi-bin/ (Status: 403)
+  /manual (Status: 301)
+  /mrtg (Status: 301)
+  /usage (Status: 301)
+  /~root (Status: 403)
+  /~operator (Status: 403)
