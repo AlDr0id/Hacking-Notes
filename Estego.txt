@@ -1,6 +1,0 @@
-#Análisis Espectograma
-wget https://code.soundsoftware.ac.uk/attachments/download/2439/SonicVisualiser-3.2.1-x86_64.AppImage
-/Layer/Add Spectogram/All channels mixed
-
-#Análisis imagen
-wget http://www.caesum.com/handbook/Stegsolve.jar -O stegsolve.jar && chmod +x stegsolve.jar && ./stegsolve.jar
