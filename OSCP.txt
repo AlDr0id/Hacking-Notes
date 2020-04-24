@@ -118,3 +118,14 @@ gcc -o sambaEx 10.c
 
 Kioptrix Level 2
 
+nmap -sn 192.168.111.0/24
+Encontramos la máquina en 192.168.111.130
+
+nmap -sV -O -Pn 192.168.111.130
+  PORT     STATE SERVICE    VERSION
+  22/tcp   open  ssh        OpenSSH 3.9p1 (protocol 1.99)
+  80/tcp   open  http       Apache httpd 2.0.52 ((CentOS))
+  111/tcp  open  rpcbind    2 (RPC #100000)
+  443/tcp  open  ssl/https?
+  631/tcp  open  ipp        CUPS 1.1
+  3306/tcp open  mysql      MySQL (unauthorized)
