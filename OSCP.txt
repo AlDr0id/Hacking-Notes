@@ -1,4 +1,4 @@
-Kioptrix 1.1
+Kioptrix Level 1
 
 netdiscover
   La encontramos en 192.168.111.129
@@ -115,3 +115,6 @@ gcc -o sambaEx 10.c
   uid=0(root) gid=0(root) groups=99(nobody)
  
  Y ya somos root
+
+Kioptrix Level 2
+
