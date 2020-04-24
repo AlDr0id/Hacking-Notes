@@ -48,3 +48,6 @@ nmap -A -Pn 192.168.111.130
   |_  Potentially risky methods: PUT
   |_http-title: 403 Forbidden
   3306/tcp open  mysql      MySQL (unauthorized)
+
+Accedemos a la web e introducimos
+  admin:' or '1'='1
