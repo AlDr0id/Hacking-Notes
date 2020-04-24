@@ -1,5 +1,8 @@
 Kioptrix 1.1
 
+PROBAR
+https://www.exploit-db.com/exploits/764 para elevar privs
+
 netdiscover
   La encontramos en 192.168.111.129
 
