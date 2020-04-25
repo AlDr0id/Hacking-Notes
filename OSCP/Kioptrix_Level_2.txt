@@ -1,9 +1,6 @@
 Kioptrix Level 2
 
 PROBAR
-Apache/2.0.52
-CUPS 1.1
-OpenSSH 3.9p1
 RPC
 MySQL
 
