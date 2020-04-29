@@ -17,3 +17,12 @@ OS CPE: cpe:/o:linux:linux_kernel:2.6
 OS details: Linux 2.6.9 - 2.6.33
 
 Como indica el creador de la web, modificamos el /etc/hosts para añadir 192.168.111.131 kioptrix3.com
+
+Apache/2.2.8 (Ubuntu) PHP/5.2.4-2ubuntu5.6 with Suhosin-Patch
+LotusCMS
+Manjeet Singh Sawhney
+index.php?page=index
+index.php?system=Blog
+http://kioptrix3.com/gallery
+loneferret o loneferret!
+gadmin gadmin.php
