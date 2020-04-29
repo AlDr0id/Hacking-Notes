@@ -1,3 +1,6 @@
+PROBAR
+GET /gallery/gallery.php?id=*&sort=dateuploaded # ID Vulnerable a SQL Injection
+
 nmap -sV -A -Pn 192.168.111.131
 
 PORT   STATE SERVICE VERSION
@@ -26,3 +29,4 @@ index.php?system=Blog
 http://kioptrix3.com/gallery
 loneferret o loneferret!
 gadmin gadmin.php
+
