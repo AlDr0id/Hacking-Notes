@@ -41,3 +41,38 @@ Seleccionamos 1 (NetCat -e)
 cd data/users
 more admin.dat
 |318d8dd409db395f0317efa71b3bad13e1fb9857|administrator|bla@bla.com
+
+hash-identifier 318d8dd409db395f0317efa71b3bad13e1fb9857
+Possible Hashs:
+[+] SHA-1
+[+] MySQL5 - SHA-1(SHA-1($pass))
+
+.bash_history de loneferret
+sudo ht
+
+find / -perm -4000 -ls 2> /dev/null
+ 66011    8 -rwsr-xr-x   1 root     root         4588 Aug 22  2008 /usr/lib/eject/dmcrypt-get-device
+ 90114  172 -rwsr-xr-x   1 root     root       168340 May 14  2008 /usr/lib/openssh/ssh-keysign
+ 90491   12 -rwsr-xr--   1 root     www-data    10276 Jun 18  2009 /usr/lib/apache2/suexec
+ 54187   12 -rwsr-xr-x   1 root     root         9624 Jan 11  2011 /usr/lib/pt_chown
+ 53422   12 -rwsr-xr-x   1 root     root        11048 Dec 10  2007 /usr/bin/arping
+ 53651   48 -rwsr-xr-x   1 root     root        46084 Mar 31  2008 /usr/bin/mtr
+ 50857   20 -rwsr-xr-x   1 root     root        19144 Dec  8  2008 /usr/bin/newgrp
+ 51026   28 -rwsr-xr-x   1 root     root        28624 Dec  8  2008 /usr/bin/chfn
+ 51029   40 -rwsr-xr-x   1 root     root        37360 Dec  8  2008 /usr/bin/gpasswd
+ 52498  112 -rwsr-xr-x   2 root     root       107936 Feb 16  2009 /usr/bin/sudo
+ 53212   40 -rwsr-sr-x   1 daemon   daemon      38464 Feb 20  2007 /usr/bin/at
+ 52498  112 -rwsr-xr-x   2 root     root       107936 Feb 16  2009 /usr/bin/sudoedit
+ 51027   24 -rwsr-xr-x   1 root     root        23952 Dec  8  2008 /usr/bin/chsh
+ 51030   32 -rwsr-xr-x   1 root     root        29104 Dec  8  2008 /usr/bin/passwd
+ 53424   16 -rwsr-xr-x   1 root     root        12296 Dec 10  2007 /usr/bin/traceroute6.iputils
+ 58472 2028 -rwsr-sr-x   1 root     root      2072344 Apr 16  2011 /usr/local/bin/ht
+ 53710  268 -rwsr-xr--   1 root     dip        269256 Oct  4  2007 /usr/sbin/pppd
+ 52260   16 -rwsr-sr-x   1 libuuid  libuuid     12336 Mar 27  2008 /usr/sbin/uuidd
+582147    4 -rwsr-xr--   1 root     dhcp         2960 Apr  2  2008 /lib/dhcp3-client/call-dhclient-script
+196704   20 -rwsr-xr--   1 root     fuse        20056 Feb 26  2008 /bin/fusermount
+196667   32 -rwsr-xr-x   1 root     root        30856 Dec 10  2007 /bin/ping
+196644   84 -rwsr-xr-x   1 root     root        81368 Sep 26  2008 /bin/mount
+196645   68 -rwsr-xr-x   1 root     root        63584 Sep 26  2008 /bin/umount
+196668   28 -rwsr-xr-x   1 root     root        26684 Dec 10  2007 /bin/ping6
+196641   28 -rwsr-xr-x   1 root     root        25540 Dec  8  2008 /bin/su
