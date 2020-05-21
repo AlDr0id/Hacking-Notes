@@ -7,7 +7,7 @@ read A
 
 clear
 echo -e "\n\n***************Peticion GET*****************\n\n"
-curl -i -G $1 #Hacemos GET
+curl --insecure -i -G $1 #Hacemos GET
 
 echo -e "\n\n###############################################################"
 echo "###############################################################"
@@ -18,7 +18,7 @@ read A
 
 clear
 echo -e "\n\n***************Peticion HEAD*****************\n\n"
-curl -i -I $1 #Hacemos HEAD
+curl --insecure -i -I $1 #Hacemos HEAD
 
 echo -e "\n\n###############################################################"
 echo "###############################################################"
@@ -29,7 +29,7 @@ read A
 
 clear
 echo -e "\n\n***************Peticion TRACE*****************\n\n"
-curl -i -X TRACE $1 #Hacemos TRACE
+curl --insecure -i -X TRACE $1 #Hacemos TRACE
 
 echo -e "\n\n###############################################################"
 echo "###############################################################"
@@ -40,7 +40,7 @@ read A
 
 clear
 echo -e "\n\n***************Peticion OPTIONS*****************\n\n"
-curl -i -X OPTIONS $1 #Hacemos OPTIONS
+curl --insecure -i -X OPTIONS $1 #Hacemos OPTIONS
 
 echo -e "\n\n###############################################################"
 echo "###############################################################"
@@ -51,7 +51,7 @@ read A
 
 clear
 echo -e "\n\n***************Peticion PUT*****************\n\n"
-curl -i -X PUT $1 #Hacemos PUT
+curl --insecure -i -X PUT $1 #Hacemos PUT
 
 echo -e "\n\n###############################################################"
 echo "###############################################################"
@@ -62,5 +62,5 @@ read A
 
 clear
 echo -e "\n\n***************Peticion POST*****************\n\n"
-curl -i -X POST $1 #Hacemos POST
+curl --insecure -i -X POST $1 #Hacemos POST
 echo -e "\n\n\n"
