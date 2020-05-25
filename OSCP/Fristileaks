@@ -6,4 +6,26 @@ nmap -sV -O -Pn 192.168.111.135
   PORT   STATE SERVICE VERSION                                                                                                                                                                                                               
   80/tcp open  http    Apache httpd 2.2.15 ((CentOS) DAV/2 PHP/5.3.3)
   
-uniscan -u 192.168.111.128 -qweds
+uniscan -u 192.168.111.135 -qweds
+  E-mails:
+  | [+] E-mail Found: kevinh@kevcom.com
+  | [+] E-mail Found: mike@hyperreal.org
+
+
+
+dirb http://192.168.111.135/ -z 100
+/robots.txt
+  Disallow: /cola
+  Disallow: /sisi
+  Disallow: /beer
+Ninguna devuelve nada
+
+/fristi
+  TODO:
+  We need to clean this up for production. I left some junk in here to make testing easier.
+
+  - by eezeepz
+  
+  Imagen en b64 en c-odigo fiende: keKkeKKeKKeKkEkkEk
+  
+  Entramos con eezeepz:keKkeKKeKKeKkEkkEk
