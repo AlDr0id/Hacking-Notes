@@ -57,3 +57,18 @@ Y tenemos shell
 
 cat /proc/version
 Linux version 2.6.32-573.8.1.el6.x86_64 (mockbuild@c6b8.bsys.dev.centos.org) (gcc version 4.4.7 20120313 (Red Hat 4.4.7-16) (GCC) ) #1 SMP Tue Nov 10 18:01:38 UTC 2015
+
+
+ps -xaf
+  1514 ?        S      0:00 /bin/sh /usr/bin/mysqld_safe --datadir=/var/lib/mysql
+    1616 ?        Sl     0:01  \_ /usr/libexec/mysqld --basedir=/usr --datadir=/var
+
+mysql -ueezeepz -pkeKkeKKeKKeKkEkkEk
+ERROR 1045 (28000): Access denied for user 'eezeepz'@'localhost' (using password: YES)
+
+
+cd /var/www/
+more notes.txt
+hey eezeepz your homedir is a mess, go clean it up, just dont delete
+the important stuff.
+-jerry
