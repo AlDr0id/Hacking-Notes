@@ -1,0 +1,9 @@
+192.168.111.135
+
+Goal: get UID 0 (root) and read the special flag file.
+
+nmap -sV -O -Pn 192.168.111.135
+  PORT   STATE SERVICE VERSION                                                                                                                                                                                                               
+  80/tcp open  http    Apache httpd 2.2.15 ((CentOS) DAV/2 PHP/5.3.3)
+  
+uniscan -u 192.168.111.128 -qweds
