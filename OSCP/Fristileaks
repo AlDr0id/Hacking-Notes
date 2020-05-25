@@ -72,3 +72,11 @@ more notes.txt
 hey eezeepz your homedir is a mess, go clean it up, just dont delete
 the important stuff.
 -jerry
+
+cd html/fristi
+  more checklogin.php
+  $host="localhost"; // Host name
+  $username="eezeepz"; // Mysql username
+  $password="4ll3maal12#"; // Mysql password
+  $db_name="hackmenow"; // Database name
+  $tbl_name="members"; // Table name
