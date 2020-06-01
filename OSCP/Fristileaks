@@ -126,4 +126,15 @@ def decodeString(str):
 clearTextResult=decodeString(sys.argv[1])
 print clearTextResult
   
-  thisisalsopw123
+  python decrypter.py mVGZ3O3omkJLmy2pcuTq
+    thisisalsopw123
+  python decrypter.py =RFn0AKnlMHMPIzpyuTI0ITG
+    LetThereBeFristi!
+
+su admin
+Password de antes: thisisalsopw123
+
+su fristigod
+sudo -l
+  User fristigod may run the following commands on this host:
+    (fristi : ALL) /var/fristigod/.secret_admin_stuff/doCom
