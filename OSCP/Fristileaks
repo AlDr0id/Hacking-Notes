@@ -104,3 +104,26 @@ cat whoisyourgodnow.txt
   =RFn0AKnlMHMPIzpyuTI0ITG
 cat cryptedpass.txt
   mVGZ3O3omkJLmy2pcuTq
+
+cat cryptpass.py
+  #Enhanced with thanks to Dinesh Singh Sikawar @LinkedIn
+  import base64,codecs,sys
+
+  def encodeString(str):
+      base64string= base64.b64encode(str)
+      return codecs.encode(base64string[::-1], 'rot13')
+
+  cryptoResult=encodeString(sys.argv[1])
+  print cryptoResult
+  
+  
+import base64,codecs,sys
+
+def decodeString(str):
+    decodedString= codecs.decode(str[::-1], 'rot13')
+    return base64.b64decode(decodedString)
+
+clearTextResult=decodeString(sys.argv[1])
+print clearTextResult
+  
+  thisisalsopw123
