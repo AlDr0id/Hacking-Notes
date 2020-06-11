@@ -5,7 +5,8 @@ Posibles usuarios ftp
 harry
 elly
 john
-
+kathy
+fred
 
 nmap -sS 192.168.1.92
   PORT     STATE  SERVICE
@@ -38,4 +39,23 @@ get note
 cat note
   Elly, make sure you update the payload information. Leave it in your FTP account once your are done, John.
   
+smbclient -L //192.168.1.92
+  print$          Disk      Printer Drivers
+  kathy           Disk      Fred, What are we doing here?
+  tmp             Disk      All temporary files should be stored here
+  IPC$            IPC       IPC Service (red server (Samba, Ubuntu))
+
+enum4linux -U -M -S -P -G -d -r -l -o -i -n 192.168.1.92
+[+] Server 192.168.1.92 allows sessions using username '', password ''
+[+] Attempting to map shares on 192.168.1.92
+//192.168.1.92/print$   Mapping: DENIED, Listing: N/A
+//192.168.1.92/kathy    Mapping: OK, Listing: OK
+//192.168.1.92/tmp      Mapping: OK, Listing: OK
+//192.168.1.92/IPC$     [E] Can't understand response:
+[+] Found domain(s):
+
+        [+] RED
+        [+] Builtin
+        
+S-1-5-21-864226560-67800430-3082388513-501 RED\nobody (Local User)
 
