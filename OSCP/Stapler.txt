@@ -59,3 +59,21 @@ enum4linux -U -M -S -P -G -d -r -l -o -i -n 192.168.1.92
         
 S-1-5-21-864226560-67800430-3082388513-501 RED\nobody (Local User)
 
+nmap --script smb-vuln* -p 139 192.168.1.92
+VULNERABLE:
+|   SMBv2 exploit (CVE-2009-3103, Microsoft Security Advisory 975497)
+VULNERABLE:
+|   Service regsvc in Microsoft Windows systems vulnerable to denial of service
+
+smbclient \\\\192.168.1.92\\kathy -U ""
+ls
+.                                   D        0  Fri Jun  3 12:52:52 2016
+..                                  D        0  Mon Jun  6 17:39:56 2016
+kathy_stuff                         D        0  Sun Jun  5 11:02:27 2016
+backup                              D        0  Sun Jun  5 11:04:14 2016
+
+cd kathy_stuff
+get todo-list.txt
+I'm making sure to backup anything important for Initech, Kathy
+
+get wordpress-4.tar.gz
