@@ -1,5 +1,12 @@
 192.168.1.92
 
+DATOS
+Posibles usuarios ftp
+harry
+elly
+john
+
+
 nmap -sS 192.168.1.92
   PORT     STATE  SERVICE
   20/tcp   closed ftp-data
