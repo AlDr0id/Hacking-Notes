@@ -77,3 +77,12 @@ get todo-list.txt
 I'm making sure to backup anything important for Initech, Kathy
 
 get wordpress-4.tar.gz
+
+
+nmap -sU -v 192.168.1.92
+  PORT    STATE SERVICE
+  53/udp  open  domain
+  137/udp open  netbios-ns
+
+
+
