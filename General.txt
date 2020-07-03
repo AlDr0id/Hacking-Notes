@@ -14,9 +14,11 @@ grep 'http://' index.html | cut -d "/" -f 3 | sort -u > list.txt
 for url in $(cat list.txt); do host $url; done | grep "has address" | cut -d " " -f 4 | sort -u
 for url in $(cat list.txt); do host $url; done | grep "has IPv6 address" | cut -d " " -f 5 | sort -u
 
-cat access.log | cut -d " " -f 1 | sort | uniq -c | sort -rnu // Filtrar IPs log Apache
+cat access.log | cut -d " " -f 1 | sort | uniq -c | sort -rnu // Filtrar IPs log Apache y veces que aparecen
 cat access.log | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados Apache
 cat access.log | grep IP | cut -d '"' -f 2 | uniq -c | sort -r // Filtrar recursos solicitados por una IP Apache
+cut -d ":" -f 1 /etc/passwd // Extraer usuarios de /etc/passwd
+cat /etc/passwd | grep "/home" | cut -d ":" -f 1 // Extraer usuarios con directorio en /home de /etc/passwd
 
 cat $1 | grep "is a valid" | cut -d " " -f 1 | sort -u > parsedUsers.txt // Filtrar usuarios enum SSH
 cat $1 | grep "2.0.0" | cut -d " " -f 3 | sort -u > parsedSMTPUsers.txt // Filtrar usuarios enum SMTP
