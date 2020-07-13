@@ -1,0 +1,5 @@
+tail -f ARCHIVO // Muestra las últimas 10 líneas actualizadas
+
+Descarga de archivos con curl, wget y axel
+
+Pag 76
